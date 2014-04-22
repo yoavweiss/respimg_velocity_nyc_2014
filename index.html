@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Yoav Weiss - Responsive images are coming</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+        <style>
+            .reveal p.credits{font-size:16px;}
+            code span.highlight {font-weight: bold; font-size: 1.4em;}
+        </style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Responsive Images are coming</h1>
+                    <p> <a href="https://twitter.com/yoavweiss">Yoav Weiss</a></p>
+                    <p>State Of the Browser - London, April 2014</p>
+                    <p><a href="http://yoavweiss.github.io/respimg-sotb-presentation/">yoavweiss.github.io/respimg-sotb-presentation</a></p>
+                    <aside class="notes">
+                    </aside>
+				</section>
+                <section>
+                    <img src="resources/braceyourselves.jpg">
+                </section>
+                <section>
+                    <h2>Who????</h2>
+                    <ul style="list-style: none">
+                        <li class="fragment"><img src="resources/ricg.png"></li>
+                        <li class="fragment"><img src="resources/chromium_logo.png" height="150px">
+                        <img src="resources/Webkit_Logo.png" height="150px"></li>
+                        <li class="fragment">Srcset &amp; Picture implementation</li>
+                    </ul>
+
+                    <aside class="notes">
+                        Working on responsive images in my spare time for the last 2 years
+                        RICG, Blink, WebKit
+                        implemented picture prototype, srcset
+                        And now implementing picture in Blink
+                    </aside>
+                </section>
+                <section>
+                    <h2>What is Responsive images?</h2>
+                    <aside class="notes">
+                        <p> Load properly dimensioned images that fit the page's design in an efficient manner</p>
+                        who knows what the responsive image probem is?
+                    </aside>
+                </section>
+                <section>
+                    <h2>Started out as</h2>
+                    <img src="resources/500P_phone_blurry_images.jpg">
+                </section>
+                <section>
+                    <h2>Turned out to be</h2>
+                    <img src="resources/monthly_data_plan_shiny_website.jpg">
+                </section>
+                <section>
+                    <h2>And...</h2>
+                    <p>Large images?</p>
+                    <img src="resources/notimeforthat.gif">
+                </section>
+                <section>
+                    <h2>People demanded a solution</h2>
+                    <img src="resources/angry-mob.jpg">
+                </section>
+                <section>
+                    <h2>Turned to the mailing lists</h2>
+                    <img src="resources/duty_calls.png">
+                </section>
+                <section>
+                    <h2>Proposals!</h2>
+                    <img src="resources/media_attr_all_the_things.jpg">
+                </section>
+                <section>
+                    <h2>Moar proposals!</h2>
+                    <img src="resources/YUNOJS.jpg">
+                </section>
+                <section>
+                    <h2>And the RICG was born</h2>
+                    <img src="resources/community-group.jpg">
+                </section>
+                <section>
+                    <h2>2 years later</h2>
+                    <img src="resources/Dog-and-Cat-working-together.jpg">
+                    <p class="credits">http://www.jokeroo.com/pictures/funny/893657.html</p>
+                    <aside class="notes">
+                        <p>It took another 2 years to get the tides to turn.</p>
+                        <p>Mainly to convince key browser people that this is an actual problem that needs solving, 
+                        and work with them to get to a proposal that everyone are happy with.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h2>The road there wasn't easy</h2>
+                    <img src="resources/RoadNotTaken.jpg">
+                    <p class=credits>http://memoirvita28.blogspot.fr/2012/11/the-road-not-taken.html</p>
+                </section>
+                <section>
+                    <h2>Src-N</h2>
+                    <img src="resources/why_not_n_square.jpg">
+                    <aside class="notes">
+                        SrcN was proposed by TabAtkins and John Mellor, after a couple of meetups we had with John.
+                        It resolved all the use case, in a single element, but got resistence from some browser people.
+                    </aside>
+                </section>
+                <section>
+                    <h2>Then some more</h2>
+                    <img src="resources/proposals_feeling_lucky.png">
+                    <aside class="notes">
+                        There was a hecktic time at the end of last year, where proposals were coming in twice a day. But now this is all behind us.
+                    </aside>
+                </section>
+                <section>
+                    <h2>And MOAR</h2>
+                    <img src="resources/proposals_keep_coming.png">
+                </section>
+                <section>
+                    <h2>Back to picture</h2>
+                    <img src="resources/new_proposal_called_picture.jpg">
+                    <aside class="notes">
+                        The following an IRC chat I had with Simon Pieters, we figured out a way to gather up all the good pieces
+                        from Src-N and wrap it inside something that looks really like the original picture syntax,
+                        only significantly easier to spec, implement and maintain.
+                        TabAtkins then revived the picture spec (basically rewrote most of it), and we've been working on it with Tab and
+                        Simon ever since.
+                    </aside>
+                </section>
+                <section>
+                    <h2>And now</h2>
+                    <img src="resources/trifives.gif">
+                    <aside class="notes">
+                        The implementation in Blink is moving along nicely, and Gecko are happily implementing as well.
+                        If all goes well, we may have the feature sihpping in a few months.
+                    </aside>
+                </section>
+                <section>
+                    <h2>Picture 2.0&trade;</h2>
+                    <!-- frankenstein things -->
+                    <aside class="notes">
+                    Let's take a closer look at each one of the parts combining the latest spec.
+                    </aside>
+                </section>
+                <section>
+                    <h2>The srcset 'x' part</h2>
+                    <aside class="notes">
+                        The oldest part of the spec, goes back to the WHAWG 2012 days
+                    </aside>
+                </section>
+                <section>
+                    <h2>Use case - "Retina images"</h2>
+                    <img src="resources/500P_phone_blurry_images.jpg">
+                </section>
+                <section>
+                    <h2>Load hi-res images</h2><h2>on hi-res devices</h2>
+                    <img src="resources/dpr_selection.jpg">
+                </section>
+                <section>
+                    <h2>The syntax</h2>
+                    <pre><code data-trim data-noescape>
+&lt;picture&gt;
+     &lt;source media="(min-width: 45em)" 
+             <span class=highlight>srcset="large.jpg 1x, large-2x.jpg 2x"&gt;</span>
+     &lt;source media="(min-width: 18em)" 
+             <span class=highlight>srcset="medium.jpg 1x, medium-2x.jpg 2x"&gt;</span>
+     &lt;img src="small.jpg" <span class=highlight>srcset="small-2x.jpg 2x" </span>
+          alt="The president."&gt;
+&lt;/picture&gt;
+                    </code></pre>
+                    <aside class="notes">
+                        You can mix srcset's x descriptor with the overall picture syntax
+                    </aside>
+                </section>
+                <section>
+                    <h2>Or even</h2>
+                    <pre><code data-trim data-noescape>
+&lt;img src="small-1x.jpg" <span class=highlight>srcset="small-2x.jpg 2x"</span> 
+     alt="The president."&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>The &lt;picture&gt; part</h2>
+                </section>
+                <section>
+                    <h2>Use case - Art direction</h2>
+                    <p><img src="resources/w3c_resp_img_art_direction.jpg"></p>
+                </section>
+                <section>
+                    <h2>Use case #2 - Mime type fallback</h2>
+                    <img src="resources/kodak-rgbssim-fs-ratio.png">
+                    <aside class="notes">
+                        Today's Web have become fragmented when it comes to image formats.
+                        We may not like it, but that's the truth :(
+                        Picture will enable us to have client-side mime type fallback if we're using browser specific image formats, just
+                        like all other resources which they're type may or may not be supported (e.g. video, fonts).
+                        Note that if you'd like, that doesn't mean that you can't do server-side content negotiation using the accept
+                        header, but client-side may be more accessible to Web developers that can't mess around with their backend, and it
+                        has caching advantages.
+                    </aside>
+                </section>
+                <section>
+                    <h2>The syntax</h2>
+                    <pre><code data-trim data-noescape>
+<span class=highlight>&lt;picture&gt;</span>
+     <span class=highlight>&lt;source media="(min-width: 45em)"</span> srcset="large.jpg"&gt;
+     <span class=highlight>&lt;source media="(min-width: 18em)"</span> srcset="medium.jpg"&gt;
+     &lt;img src="small.jpg" alt="The president."&gt;
+<span class=highlight>&lt;/picture&gt;</span>
+                    </code></pre>
+                    <aside class="notes">
+                        Here you can see the syntax parts that make up the "picture" part of the spec, namely the picture element and its
+                        source children. Each one of the source children, as well as the img child define an image that fits into a certain
+                        responsive breakpoint.
+                    </aside>
+                </section>
+                <section>
+                    <h2>The &lt;img&gt; is not optional</h2>
+                    <pre><code data-trim data-noescape>
+&lt;picture&gt;
+     &lt;source media="(min-width: 45em)" srcset="large.jpg"&gt;
+     &lt;source media="(min-width: 18em)" srcset="medium.jpg"&gt;
+     <span class=highlight>&lt;img src="small.jpg" alt="The president."&gt;</span>
+&lt;/picture&gt;
+                    </code></pre>
+                    <aside class="notes">
+                        What's important to understand, and the big difference between this spec and the previous picture version,
+                        is that the img element is not optional, it must be there in order for an image to be downloaded and displayed on screen.
+                        picture itself, is very much like a div, with the only difference is that img will look up the resource that it'd
+                        pick to download when picture is its parent.
+                    </aside>
+                </section>
+                <section>
+                    <h2>The sizes + srcset 'w' descriptor part</h2>
+                    <img src="resources/sizes_srcset.png">
+                    <p class=credits>http://ericportis.com/posts/2014/srcset-sizes/</p>
+                    <aside class="notes">
+                        The third part is IMO, the most exciting part. This is the major innovation that the original src-N proposal brought (John
+                        Mellor &amp; Tab Atkins hashed it out over a bottle of wine, the legend says)
+                        It's to most exciting since it applies almost everywhere, once you look at it. It can be used to save bandwidth in
+                        both responsive and adaptive designs and even if hi res displays are not involved.
+                    </aside>
+                </section>
+                <section>
+                    <h2>use case - variable width images</h2>
+                    <img src="resources/viewport_selection_mob_first.jpg">
+                </section>
+                <section>
+                    <h2>The syntax</h2>
+                    <pre><code data-trim data-noescape>
+&lt;picture&gt;
+    &lt;source media="(max-width: 80em)"
+            sizes="(max-width: 30em) 100vw, 
+                   <span class=highlight>(max-width: 50em) 50vw, 
+             calc(33vw - 100px)"</span>
+            srcset="<span class=highlight>pic100.jpg 100w</span>, pic200.jpg 200w, 
+                    pic400.jpg 400w, pic800.jpg 800w, pic1600.jpg 1600w, 
+                    pic3200.jpg 3200w"&gt;
+    &lt;img src="otherpic.jpg" alt="The president giving an award."&gt;
+&lt;/picture&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>Or even</h2>
+                    <pre><code data-trim data-noescape>
+&lt;img src="otherpic.jpg" alt="The president giving an award."
+     sizes="(max-width: 30em) 100vw, 
+            <span class=highlight>(max-width: 50em) 50vw, 
+         calc(33vw - 100px)"</span>
+     srcset="<span class=highlight>pic100.jpg 100w</span>, pic200.jpg 200w, 
+             pic400.jpg 400w, pic800.jpg 800w, pic1600.jpg 1600w, 
+             pic3200.jpg 3200w"&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>Gotchas</h2>
+                    <img src="resources/bear-trap.jpg">
+                    <p class=credits>http://jaddid.com/bear-trap/attachment/4650/</p>
+                </section>
+                <section>
+                    <h2>Intrinsic sizing</h2>
+                    <img src="resources/intrinsicSizingX.png">
+                    <aside class="notes">
+                        Both the 'x' descriptor and the 'w' have an impact on the image's intrinsic size.
+                        That means that when the image dimensions are not otherwise defined, the browser will use these values and
+                        the image dimensions from the image data itself to determine the display size of the image.
+                        So, if you set these values incrrectly, they may imapct the way your image is displayed.
+                    </aside>
+                </section>
+                <section>
+                    <h2>'w' descriptror without 'sizes'</h2>
+                    100vw is the default
+                    <aside class="notes">
+                        When sizes is missing, the default value the browser will use to determine which resource to download and at what
+                        size to display it is '100vw'. (So the full width of the viewport)
+
+                    </aside>
+                </section>
+                <section>
+                    <h2>Old 'w' syntax</h2>
+                    <aside class="notes">
+                        The image width you state is not the actual image width, but the viewport width.
+                        Since you didn't add sizes, the browser will assume 100vw.
+                        That means that the resource you think should be picked will be picked (YAY!)
+                        But its intrinsic sizing will be WAY off.
+                    </aside>
+                </section>
+                <section>
+                    <h2>Styling</h2>
+                    <h3 style="margin-top: 120px">"Picture is a magical span, nothing more"</h3>
+                    <p style="text-align: right">- Tab Atkins</p>
+                    <!-- Add a picture of a unicore thing -->
+                    <aside class="notes">
+                        As far as styling goes, all the style that should impact the image itself, should still go on the img element.
+                        Picture is simply a wrapper around that img, which as far as styling goes, behaves like a span.
+                    </aside>
+                </section>
+                <section>
+                    <h2>Mixing 'x' and 'w'</h2>
+                    <p>A big no no</p>
+                    <pre><code data-trim data-noescape>
+&lt;img srcset="<span class=highlight style="text-decoration: line-through">pic200.jpg 100w 2x</span>, pic200.jpg 200w, pic400.jpg 400w, 
+             pic800.jpg 800w, pic1600.jpg 1600w, pic3200.jpg 3200w"&gt;
+                    </code></pre>
+                    <img src="resources/no2.gif">
+                    <aside class="notes">
+                        Such resources will be dropped to the floor, where in the old srcset syntax, you could do that
+                    </aside>
+                </section>
+                <section>
+                    <h2>Polyfilling</h2>
+                </section>
+                <section>
+                    <h2>Picturefill</h2>
+                    <p>The official RICG polyfill</p>
+                    <p>Worked on by the Filament Group, and other contributors</p>
+                </section>
+                <section>
+                    <h2>Polyfilling gotchas</h2>
+                </section>
+                <section>
+                    <h2>Double download</h2>
+                    <aside class="notes">
+                        Most of the responsive image polyfills have a tendency to download the fallback image as well as the final image
+                        required. So make sure the polyfill you're using doesn't do that, or embraces the double download (LQIP)
+                    </aside>
+                </section>
+                <section>
+                    <h2>Old 'w' syntax polyfill</h2>
+                    <aside class="notes">
+                        Older polyfills should be avoided, especially ones that implemented the old srcset algorithm.
+                        They would interpret the 'w' value differently than the standard implementation, meaning that users of different
+                        browsers will get different image resources.
+                    </aside>
+                </section>
+                <section>
+                    <h2>Future compat</h2>
+                    <h3>Feature detection FTW!</h3>
+                    <pre style="display:inline"><code data-trim style="display: inline">HTMLImageElement.sizes</code></pre> &amp;
+                    <pre style="display:inline"><code data-trim style="display: inline">HTMLPictureElement</code></pre>
+                    <aside class="notes">
+                        The syntax may be extended in the future (e.g. with 'h' descriptors for height-constrained images).
+                        Make sure your polyfill uses feature detection, and backs off when native support is detected.
+                    </aside>
+                </section>
+                <section>
+                    <h1>Thanks!</h1>
+                    <p> <a href="https://twitter.com/yoavweiss">@yoavweiss</a> on Twitter &amp; GitHub</p>
+                    <p><a href="http://responsiveimages.org">responsiveimages.org</a></p>
+                    <p>Slides: <a href="http://yoavweiss.github.io/respimg-sotb-presentation/">yoavweiss.github.io/respimg-sotb-presentation</a></p>
+                </section>
+                <section>
+                    <h2>Questions?</h2>
+                </section>
+                <!--
+				<section>
+					<h2>Heads Up</h2>
+					<p>
+						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
+						support for CSS 3D transforms to see it in its full glory.
+					</p>
+
+					<aside class="notes">
+						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+					</aside>
+				</section>
+
+				<section>
+						<h2>Vertical Slides</h2>
+						<p>
+							Slides can be nested inside of other slides,
+							try pressing <a href="#" class="navigate-down">down</a>.
+						</p>
+						<a href="#" class="image navigate-down">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h2>Basement Level 1</h2>
+						<p>Press down or up to navigate.</p>
+					</section>
+					<section>
+						<h2>Basement Level 2</h2>
+						<p>Cornify</p>
+						<a class="test" href="http://cornify.com">
+							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
+						</a>
+					</section>
+					<section>
+						<h2>Basement Level 3</h2>
+						<p>That's it, time to go back up.</p>
+						<a href="#/2" class="image">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
+						</a>
+					</section>
+				</section>
+
+				<section>
+					<h2>Slides</h2>
+					<p>
+						Not a coder? No problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slid.es" target="_blank">http://slid.es</a>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Point of View</h2>
+					<p>
+						Press <strong>ESC</strong> to enter the slide overview.
+					</p>
+					<p>
+						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
+					</p>
+				</section>
+
+				<section>
+					<h2>Works in Mobile Safari</h2>
+					<p>
+						Try it out! You can swipe through the slides and pinch your way to the overview.
+					</p>
+				</section>
+
+				<section>
+					<h2>Marvelous Unordered List</h2>
+					<ul>
+						<li>No order here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Fantastic Ordered List</h2>
+					<ol>
+						<li>One is smaller than...</li>
+						<li>Two is smaller than...</li>
+						<li>Three!</li>
+					</ol>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Markdown support
+
+						For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
+
+						```
+						<section data-markdown>
+						  ## Markdown support
+
+						  For those of you who like that sort of thing.
+						  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
+						</section>
+						```
+					</script>
+				</section>
+
+				<section id="transitions">
+					<h2>Transition Styles</h2>
+					<p>
+						You can select from different transitions, like: <br>
+						<a href="?transition=cube#/transitions">Cube</a> -
+						<a href="?transition=page#/transitions">Page</a> -
+						<a href="?transition=concave#/transitions">Concave</a> -
+						<a href="?transition=zoom#/transitions">Zoom</a> -
+						<a href="?transition=linear#/transitions">Linear</a> -
+						<a href="?transition=fade#/transitions">Fade</a> -
+						<a href="?transition=none#/transitions">None</a> -
+						<a href="?#/transitions">Default</a>
+					</p>
+				</section>
+
+				<section id="themes">
+					<h2>Themes</h2>
+					<p>
+						Reveal.js comes with a few themes built in: <br>
+						<a href="?theme=sky#/themes">Sky</a> -
+						<a href="?theme=beige#/themes">Beige</a> -
+						<a href="?theme=simple#/themes">Simple</a> -
+						<a href="?theme=serif#/themes">Serif</a> -
+						<a href="?theme=night#/themes">Night</a> -
+						<a href="?#/themes">Default</a>
+					</p>
+					<p>
+						<small>
+							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
+						</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Global State</h2>
+					<p>
+						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
+						will be added as a class to the document element when the slide is open. This lets you
+						apply broader style changes, like switching the background.
+					</p>
+				</section>
+
+				<section data-state="customevent">
+					<h2>Custom Events</h2>
+					<p>
+						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
+					</p>
+					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+Reveal.addEventListener( 'customevent', function() {
+	console.log( '"customevent" has fired' );
+} );
+					</code></pre>
+				</section>
+
+				<section>
+					<section data-background="#007777">
+						<h2>Slide Backgrounds</h2>
+						<p>
+							Set <code>data-background="#007777"</code> on a slide to change the full page background to the given color. All CSS color formats are supported.
+						</p>
+						<a href="#" class="image navigate-down">
+							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png">
+						<h2>Image Backgrounds</h2>
+						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
+					</section>
+					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" data-background-repeat="repeat" data-background-size="100px">
+						<h2>Repeated Image Backgrounds</h2>
+						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
+					</section>
+				</section>
+
+				<section data-transition="linear" data-background="#4d7e65" data-background-transition="slide">
+					<h2>Background Transitions</h2>
+					<p>
+						Pass reveal.js the <code>backgroundTransition: 'slide'</code> config argument to make backgrounds slide rather than fade.
+					</p>
+				</section>
+
+				<section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
+					<h2>Background Transition Override</h2>
+					<p>
+						You can override background transitions per slide by using <code>data-background-transition="slide"</code>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Clever Quotes</h2>
+					<p>
+						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
+					</p>
+					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
+						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Pretty Code</h2>
+					<pre><code data-trim contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) ) {
+        node.className += ' roll';
+      }
+    };
+  }
+}
+					</code></pre>
+					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+				</section>
+
+				<section>
+					<h2>Intergalactic Interconnections</h2>
+					<p>
+						You can link between slides internally,
+						<a href="#/2/3">like this</a>.
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Fragmented Views</h2>
+						<p>Hit the next arrow...</p>
+						<p class="fragment">... to step through ...</p>
+						<ol>
+							<li class="fragment"><code>any type</code></li>
+							<li class="fragment"><em>of view</em></li>
+							<li class="fragment"><strong>fragments</strong></li>
+						</ol>
+
+						<aside class="notes">
+							This slide has fragments which are also stepped through in the notes window.
+						</aside>
+					</section>
+					<section>
+						<h2>Fragment Styles</h2>
+						<p>There's a few styles of fragments, like:</p>
+						<p class="fragment grow">grow</p>
+						<p class="fragment shrink">shrink</p>
+						<p class="fragment roll-in">roll-in</p>
+						<p class="fragment fade-out">fade-out</p>
+						<p class="fragment highlight-red">highlight-red</p>
+						<p class="fragment highlight-green">highlight-green</p>
+						<p class="fragment highlight-blue">highlight-blue</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Spectacular image!</h2>
+					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
+						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
+					</a>
+				</section>
+
+				<section>
+					<h2>Export to PDF</h2>
+					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
+					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
+					<script>
+						document.getElementById('slideshare').attributeName = 'allowfullscreen';
+					</script>
+				</section>
+
+				<section>
+					<h2>Take a Moment</h2>
+					<p>
+						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
+						during a presentation.
+					</p>
+				</section>
+
+				<section>
+					<h2>Stellar Links</h2>
+					<ul>
+						<li><a href="http://slid.es">Try the online editor</a></li>
+						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
+						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>THE END</h1>
+					<h3>BY Hakim El Hattab / hakim.se</h3>
+				</section>
+                -->
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+	</body>
+</html>
