@@ -50,6 +50,9 @@
                 </section>
                 <section>
                     <img width=800px src="resources/braceyourselves.jpg">
+                    <aside class="notes">
+                        Hi, I'm here today to talk about responsive images and upcoming native solutions implementation in browsers.
+                    </aside>
                 </section>
                 <section>
                     <h2>Who????</h2>
@@ -61,21 +64,28 @@
                     </ul>
 
                     <aside class="notes">
+                        (fragments)
                         <p>Working on responsive images in my spare time for the last 2 years</p>
-                        <p>RICG, Blink, WebKit</p>
-                        <p>implemented picture prototype, srcset and now implementing picture in Blink</p>
+                        <p>A member of the RICG</p>
+                        <p>A Blink &amp; WebKit committer</p>
+                        <p>Prototyped picture in WebKit. Implemented srcset in Blink. Now implementing (the new) picture.</p>
                     </aside>
                 </section>
                 <section>
                     <h2>What is Responsive images?</h2>
                     <p class=fragment>Efficiently load properly dimensioned images that fit the page's design</p>
                     <aside class="notes">
+                        (fragments)
                         <p>Who knows what the responsive image problem is?</p>
                     </aside>
                 </section>
                 <section>
                     <h2>Started out as</h2>
                     <img width=600px src="resources/500P_phone_blurry_images.jpg" alt="My 500£ phone is showing blurry images">
+                    <aside class="notes">
+                        <p>It started out (or at least got people's attention) as a quality issue.</p>
+                        <p>The solution to that was simple - just send users the big images</p>
+                    </aside>
                 </section>
                 <section>
                     <h2>Turned out to be</h2>
@@ -190,6 +200,9 @@
                 <section>
                     <h2>Load hi-res images</h2><h2>on hi-res devices</h2>
                     <img src="resources/dpr_selection.jpg">
+                    <aside class="notes">
+                        Note that this is impacting all Websites. Not just responsive ones.
+                    </aside>
                 </section>
                 <section>
                     <h2>The syntax</h2>
@@ -210,7 +223,7 @@
                 <section>
                     <h2>Or even</h2>
                     <pre><code data-trim data-noescape>
-&lt;img src="small-1x.jpg" <span class=highlight>srcset="small-2x.jpg 2x"</span> 
+&lt;img src=<span class=highlight>"small-1x.jpg" srcset="small-2x.jpg 2x"</span> 
      alt="The president."&gt;
                     </code></pre>
                 </section>
@@ -270,7 +283,7 @@
                 </section>
                 <section>
                     <h2>The sizes + srcset 'w' descriptor part</h2>
-                    <img src="resources/sizes_srcset.png">
+                    <img width=800px src="resources/sizes_srcset.png">
                     <p class=credits>http://ericportis.com/posts/2014/srcset-sizes/</p>
                     <aside class="notes">
                         <p>The third part is IMO, the most exciting part. </p>
@@ -289,8 +302,8 @@
                     <pre><code data-trim data-noescape>
 &lt;picture&gt;
     &lt;source media="(max-width: 80em)"
-            sizes="(max-width: 30em) 100vw, 
-                   <span class=highlight>(max-width: 50em) 50vw, 
+            sizes=<span class=highlight>"(max-width: 30em) 100vw, 
+                   (max-width: 50em) 50vw, 
              calc(33vw - 100px)"</span>
             srcset="<span class=highlight>pic100.jpg 100w</span>, pic200.jpg 200w, 
                     pic400.jpg 400w, pic800.jpg 800w, pic1600.jpg 1600w, 
@@ -303,8 +316,8 @@
                     <h2>Or even</h2>
                     <pre><code data-trim data-noescape>
 &lt;img src="otherpic.jpg" alt="The president giving an award."
-     sizes="(max-width: 30em) 100vw, 
-            <span class=highlight>(max-width: 50em) 50vw, 
+     sizes=<span class=highlight>"(max-width: 30em) 100vw, 
+            (max-width: 50em) 50vw, 
          calc(33vw - 100px)"</span>
      srcset="<span class=highlight>pic100.jpg 100w</span>, pic200.jpg 200w, 
              pic400.jpg 400w, pic800.jpg 800w, pic1600.jpg 1600w, 
@@ -331,10 +344,11 @@
                     <li class=fragment>sizes and srcset - behind a flag</li>
                     <li class=fragment>picture - work to start soon!</li>
                     <aside class="notes">
-                        <p>I started out by porting WebKit's srcset implementation. It shipped in Chrome/Opera stable a few weeks back.</p>
-                        <p>sizes and the 'w' descriptor in srcset is almost done. (missing the calc()) part). I'll probably aim to ship it
+                        (fragments)
+                        <p>I started out by implementing srcset's x descriptor. It shipped in Chrome/Opera stable a few weeks back.</p>
+                        <p>sizes and the 'w' descriptor in srcset are almost done. (missing the calc()) part). I'll probably aim to ship it
                         in M37</p>
-                        <p>picture work is being held up by me talking here :)</p>
+                        <p>picture work is next on my list</p>
                     </aside>
                 </section>
                 <section>
@@ -349,6 +363,7 @@
                     <p class=fragment>Implemented srcset's 'x' descriptor</p>
                     <p class=fragment>Willing to accept patches behind a compile flag</p>
                     <aside class="notes">
+                        (fragments)
                         <p>They're not very enthusiastic about that.</p>
                     </aside>
                 </section>
@@ -361,9 +376,9 @@
                     <h2>Intrinsic sizing</h2>
                     <p><img src="resources/intrinsicSizingX.png"></p>
                     <aside class="notes">
-                        Both the 'x' descriptor and the 'w' have an impact on the image's intrinsic size.
-                        That means that when the image dimensions are not otherwise defined, the browser will use these values and
-                        the image dimensions from the image data itself to determine the display size of the image.
+                        <p>Both the 'x' descriptor and the 'w' have an impact on the image's intrinsic size.</p>
+                        <p>That means that when the image dimensions are not otherwise defined, the browser will use these values and
+                        the image dimensions from the image data itself to determine the display size of the image.</p>
                         So, if you set these values incrrectly, they may imapct the way your image is displayed.
                     </aside>
                 </section>
@@ -391,7 +406,16 @@
                 </section>
                 <section>
                     <h2>'x' and 'w' resources can be mixed</h2>
+                    <pre><code data-trim data-noescape>
+&lt;img src="otherpic.jpg" alt="The president giving an award."
+     srcset="<span class=highlight>pic-2x.jpg 2x, pic200.jpg 200w, </span>
+             pic400.jpg 400w, pic800.jpg 800w, pic1600.jpg 1600w, 
+             pic3200.jpg 3200w"&gt;
+                    </code></pre>
                     <p class=fragment>You really shouldn't</p>
+                    <aside class="notes">
+                        (fragments)
+                    </aside>
                 </section>
                 <section>
                     <h2>src cannot be selected when 'w' is present</h2>
