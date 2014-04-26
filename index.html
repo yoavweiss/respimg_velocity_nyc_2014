@@ -51,7 +51,7 @@
                 <section>
                     <img width=800px src="resources/braceyourselves.jpg">
                     <aside class="notes">
-                        Hi, I'm here today to talk about responsive images and upcoming native solutions implementation in browsers.
+                        Hi, I'm here today to talk about the responsive images solution that's coming soon to a browser near you.
                     </aside>
                 </section>
                 <section>
@@ -90,11 +90,17 @@
                 <section>
                     <h2>Turned out to be</h2>
                     <img width=600px src="resources/monthly_data_plan_shiny_website.jpg">
+                    <aside class="notes">
+                        This has turned out to be an abuse of our users data plans, which may be limited.
+                    </aside>
                 </section>
                 <section>
                     <h2>And...</h2>
                     <p>Large images?</p>
                     <img width=600px src="resources/notimeforthat.gif" alt="Ain't nobody got time for that!">
+                    <aside class="notes">
+                        And abuse of our users' time. RWD sites gt a reputation of being slow Web sites, mainly because of images.
+                    </aside>
                 </section>
                 <section>
                     <h2>People demanded a solution</h2>
@@ -123,7 +129,6 @@
                         <p>A lot of mailing list flame wars. Things got tense.</p>
                         <p>I believe that in the root of this tension, was misunderstanding on the part of both sides.</p>
                         <p>I can talk about it for hours, so I won't :)</p>
-
                     </aside>
                 </section>
                 <section>
@@ -147,6 +152,7 @@
                     <img src="resources/why_not_n_square.jpg">
                     <aside class="notes">
                         <p>SrcN was proposed by TabAtkins and John Mellor, after a couple of meetups we had with John.</p>
+                        (John Mellor &amp; Tab Atkins hashed it out over a bottle of wine, the legend says)   
                         <p>It resolved all the use case, in a single element, but got resistence from some browser people.</p>
                     </aside>
                 </section>
@@ -287,8 +293,7 @@
                     <p class=credits>http://ericportis.com/posts/2014/srcset-sizes/</p>
                     <aside class="notes">
                         <p>The third part is IMO, the most exciting part. </p>
-                        <p>This is the major innovation that the original src-N proposal brought (John
-                        Mellor &amp; Tab Atkins hashed it out over a bottle of wine, the legend says)</p>
+                        <p>This is the major innovation that the original src-N proposal brought </p>
                         <p>It's the most exciting since it applies almost everywhere, once you look at it. </p><p>It can be used to save bandwidth in
                         both responsive and adaptive designs and even if hi res displays are not involved.</p>
                     </aside>
@@ -373,6 +378,36 @@
                     <p class=credits>http://jaddid.com/bear-trap/attachment/4650/</p>
                 </section>
                 <section>
+                    <h2>'w' descriptror without 'sizes'</h2>
+                    <pre><code data-trim data-noescape>
+&lt;img src="otherpic.jpg" alt="The president giving an award."
+     srcset="pic100.jpg 100w, pic200.jpg 200w"&gt;
+                    </code></pre>
+                    is identical to
+                    <pre><code data-trim data-noescape>
+&lt;img src="otherpic.jpg" <span class=highlight>sizes="100vw"</span>
+     alt="The president giving an award."
+     srcset="pic100.jpg 100w, pic200.jpg 200w"&gt;
+                    </code></pre>
+                    <aside class="notes">
+                        When sizes is missing, the default value the browser will use to determine which resource to download and at what
+                        size to display it is '100vw'. (So the full width of the viewport)
+
+                    </aside>
+                </section>
+                <section>
+                    <h2>Sizes has no impact on 'x' descriptors</h2>
+                    <pre><code data-trim data-noescape>
+&lt;img src="pic1x.jpg" <span class=highlight style="text-decoration: line-through">sizes="1vw"</span>
+     alt="The president giving an award."
+     srcset="pic2x.jpg 2x, pic4.jpg 4x"&gt;
+                    </code></pre>
+                    <aside class="notes">
+                        <p>Sizes only influences 'w' descriptors, as it lets the browser figure out these resources' DPR.</p>
+                        <p>Other resources are not impacted</p>
+                    </aside>
+                </section>
+                <section>
                     <h2>Intrinsic sizing</h2>
                     <p><img src="resources/intrinsicSizingX.png"></p>
                     <aside class="notes">
@@ -389,22 +424,6 @@
                     </aside>
                 </section>
                 <section>
-                    <h2>'w' descriptror without 'sizes'</h2>
-                    100vw is the default
-                    <aside class="notes">
-                        When sizes is missing, the default value the browser will use to determine which resource to download and at what
-                        size to display it is '100vw'. (So the full width of the viewport)
-
-                    </aside>
-                </section>
-                <section>
-                    <h2>Sizes has no impact on 'x' descriptors</h2>
-                    <aside class="notes">
-                        <p>Sizes only influences 'w' descriptors, as it lets the browser figure out these resources' DPR.</p>
-                        <p>Other resources are not impacted</p>
-                    </aside>
-                </section>
-                <section>
                     <h2>'x' and 'w' resources can be mixed</h2>
                     <pre><code data-trim data-noescape>
 &lt;img src="otherpic.jpg" alt="The president giving an award."
@@ -418,7 +437,23 @@
                     </aside>
                 </section>
                 <section>
+                    <h2>'x' and 'w' descriptors cannot</h2>
+                    <p>A big no no</p>
+                    <pre><code data-trim data-noescape>
+&lt;img srcset="<span class=highlight style="text-decoration: line-through">pic200.jpg 100w 2x</span>, pic200.jpg 200w, pic400.jpg 400w, 
+             pic800.jpg 800w, pic1600.jpg 1600w, pic3200.jpg 3200w"&gt;
+                    </code></pre>
+                    <img src="resources/no2.gif">
+                    <aside class="notes">
+                        Such resources will be dropped to the floor, where in the old srcset syntax, you could do that
+                    </aside>
+                </section>
+                <section>
                     <h2>src cannot be selected when 'w' is present</h2>
+                    <pre><code data-trim data-noescape>
+&lt;img <span class=highlight>src="otherpic.jpg"</span> alt="The president giving an award."
+     srcset="<span class=highlight>pic100.jpg 100w, pic200.jpg 200w</span>"&gt;
+                    </code></pre>
                     <aside class="notes">
                         If you have 'w' resources, the 'src' resource is not part of the selection algorithm.
                         That is to avoid surprises.
@@ -436,6 +471,7 @@
                 </section>
                 <section>
                     <h2>Old 'w' syntax</h2>
+                    Very similar, but very different
                     <aside class="notes">
                         <p>If you're writing old srcset syntax, you're stating the viewport width, but it's being interpreted as the image's
                         width</p>
@@ -454,18 +490,6 @@
                         <p>As far as styling goes, all the style that should impact the image itself, should still go on the img
                         element.</p>
                         <p>Picture is simply a wrapper around that img, which as far as styling goes, behaves like a span.</p>
-                    </aside>
-                </section>
-                <section>
-                    <h2>Mixing 'x' and 'w' descriptors</h2>
-                    <p>A big no no</p>
-                    <pre><code data-trim data-noescape>
-&lt;img srcset="<span class=highlight style="text-decoration: line-through">pic200.jpg 100w 2x</span>, pic200.jpg 200w, pic400.jpg 400w, 
-             pic800.jpg 800w, pic1600.jpg 1600w, pic3200.jpg 3200w"&gt;
-                    </code></pre>
-                    <img src="resources/no2.gif">
-                    <aside class="notes">
-                        Such resources will be dropped to the floor, where in the old srcset syntax, you could do that
                     </aside>
                 </section>
                 <section>
