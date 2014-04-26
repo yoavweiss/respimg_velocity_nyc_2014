@@ -424,6 +424,19 @@
                     </aside>
                 </section>
                 <section>
+                    <h2>@viewport should be inlined!</h2>
+                    <pre><code data-trim data-noescape>
+&lt;style&gt;
+    @viewport {
+        width: auto;
+    }
+&lt;/style&gt;
+                    </code></pre>
+                    <aside class="notes">
+                        viewport instructions should be inlined so that browsers can use them to determine which resources to fetch
+                    </aside>
+                </section>
+                <section>
                     <h2>'x' and 'w' resources can be mixed</h2>
                     <pre><code data-trim data-noescape>
 &lt;img src="otherpic.jpg" alt="The president giving an award."
