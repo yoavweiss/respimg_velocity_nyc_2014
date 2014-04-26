@@ -303,7 +303,7 @@
 &lt;picture&gt;
     &lt;source media="(max-width: 80em)"
             sizes=<span class=highlight>"(max-width: 30em) 100vw, 
-                   (max-width: 50em) 50vw, 
+             (max-width: 50em) 50vw, 
              calc(33vw - 100px)"</span>
             srcset="<span class=highlight>pic100.jpg 100w</span>, pic200.jpg 200w, 
                     pic400.jpg 400w, pic800.jpg 800w, pic1600.jpg 1600w, 
@@ -317,7 +317,7 @@
                     <pre><code data-trim data-noescape>
 &lt;img src="otherpic.jpg" alt="The president giving an award."
      sizes=<span class=highlight>"(max-width: 30em) 100vw, 
-            (max-width: 50em) 50vw, 
+         (max-width: 50em) 50vw, 
          calc(33vw - 100px)"</span>
      srcset="<span class=highlight>pic100.jpg 100w</span>, pic200.jpg 200w, 
              pic400.jpg 400w, pic800.jpg 800w, pic1600.jpg 1600w, 
@@ -442,6 +442,7 @@
                         <p>Since you didn't add sizes, the browser will assume 100vw.</p>
                         <p>That means that the resource you think should be picked will be picked (YAY!)</p>
                         <p>But its intrinsic sizing will be WAY off.</p>
+                        <p>BTW, we're now considering changing 'w' to something else, to avoid that confusion</p>
                     </aside>
                 </section>
                 <section>
@@ -837,7 +838,7 @@ function linkify( selector ) {
                 center: true,
 
                 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+                transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
 
                 // Optional libraries used to extend on reveal.js
                 dependencies: [
