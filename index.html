@@ -32,13 +32,26 @@
             .reveal .credits { font-size:24px; float: right; }
             .reveal .bright { color: white; background: rgba(128, 128, 128, 0.8);}
             .reveal .dark { color: black; background: rgba(128, 128, 128, 0.8);}
-            .reveal .bottom { margin-top: 450px;}
+            .reveal .bottom { margin-top: 250px;}
             .reveal h1.bright, .reveal h2.bright { padding-bottom: 20px; }
             code span.highlight {font-weight: bold; font-size: 1.4em;}
             .reveal code {font-size: 1.2em; width: 120%;margin-left: -10%;line-height: 1.3em;}
             //.reveal .slides > section{ height: 720px; } 
             //.reveal .slides > section{ min-height: 560px; } 
             h1.large { font-size: 8em; }
+
+            // Thanks to http://stackoverflow.com/questions/2539207/how-to-change-the-strike-out-line-through-thickness-in-css
+            .strikeout {
+                position: relative;
+            }
+            .strikeout::after {
+                border-bottom: 7px solid black;
+                content: "";
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 60%;
+            }
             /*
             .reveal .slides {
                   height: 100%;
@@ -64,10 +77,10 @@
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
                 <section>
-                    <h1>Responsive Images are coming</h1>
+                    <h1>Responsive Images</h1><h1>are coming</h1>
                     <p> <a href="https://twitter.com/yoavweiss">Yoav Weiss</a></p>
                     <p>Velocity - NYC, September 2014</p>
-                    <p><a href="http://yoavweiss.github.io/respimg-velocitynyc-talk/">yoavweiss.github.io/respimg-velocitynyc-talk</a></p>
+                    <p><a href="http://yoavweiss.github.io/respimg_velocity_nyc_2014/">yoavweiss.github.io/respimg_velocity_nyc_2014</a></p>
                     <aside class="notes">
                     </aside>
                 </section>
@@ -94,7 +107,7 @@
                     <h2> Efficiently load properly dimensioned images that fit the page's design</h2>
                 </section>
                 <section>
-                    <h2>&lt;history&gt;</h2>
+                    <h1>&lt;history&gt;</h1>
                     <aside class="notes">
                     </aside>
                 </section>
@@ -108,17 +121,17 @@
                     </aside>
                 </section>
                 <section>
-                    <h2>"But that's easy"</h2>
+                    <h1>"But that's easy"</h1>
                     <aside class="notes">
                     </aside>
 				</section>
                 <section>
-                    <h2>"Just send the largest possible image"</h2>
+                    <h1>"Just send the largest possible image"</h1>
                     <aside class="notes">
                     </aside>
 				</section>
                 <section>
-                    <h2>"And let the browser resize it"</h2>
+                    <h1>"And let the browser resize it"</h1>
                     <aside class="notes">
                     </aside>
 				</section>
@@ -185,52 +198,52 @@
                 </section>
                 <section data-background="cc_resources/Angry_mob_of_four.jpg">
                     <h1 style="background: rgba(128,128,128,0.8);color: white; font-size: 4em;padding-bottom: 20px;">People demanded a solution</h1>
-                    <div class="credits bottom" style="margin-top:
-                        200px;float:none">http://www.flickr.com/photos/29233640@N07/3645211083</div>
+                    <div class="credits bottom bright">http://www.flickr.com/photos/29233640@N07/3645211083</div>
                 </section>
                 <section>
                     <h2>Turned to the mailing lists</h2>
-                    <img width=500px src="resources/duty_calls.png">
+                    <div><img width=400px src="resources/duty_calls.png"></div>
+                    <div class="credits">http://xkcd.com/386/</div>
                 </section>
                 <section>
-                    <h2>Proposals!</h2>
+                    <h1>Proposals!</h1>
                     <div><img width=400px src="cc_resources/yuno.png"></div>
                     <div style="font-size: 2em;width: 800px; margin: auto">Y U NO MEDIA ATTR</div>
                     <div class="credits bottom" style="margin-top: 100px;">https://openclipart.org/detail/162577/yuno---meme-by-genx</div>
                 </section>
                 <section>
-                    <h2>Moar proposals!</h2>
+                    <h1>Moar proposals!</h1>
                     <div><img width=400px src="cc_resources/yuno.png"></div>
                     <div style="font-size: 2em;width: 800px; margin: auto">Y U NO CSS</div>
                     <div class="credits bottom" style="margin-top: 100px;">https://openclipart.org/detail/162577/yuno---meme-by-genx</div>
                 </section>
                 <section>
-                    <h2>And MOAR!!!</h2>
+                    <h1>And MOAR!!!</h1>
                     <div><img width=400px src="cc_resources/yuno.png"></div>
                     <div style="font-size: 2em;width: 800px; margin: auto">Y U NO JS</div>
                     <div class="credits bottom" style="margin-top: 100px;">https://openclipart.org/detail/162577/yuno---meme-by-genx</div>
                 </section>
-                <section data-background="cc_resources/RICG_Logo_Red.png">
+                <section data-background="cc_resources/RICG_Logo_Red.png" data-background-size="99%">
                     <aside class="notes">
                     <h2>And the RICG was born</h2>
                     </aside>
                 </section>
                 <section>
-                    <h2>&lt;picture&gt; proposal</h2>
+                    <h1>&lt;picture&gt; proposal</h1>
                     <aside class="notes">
                         <p>The RICG discussed the issue for a few months and came up with the picture element proposal</p>
                     </aside>
                 </section>
                 <section>
-                    <h2>srcset proposal</h2>
+                    <h1>srcset proposal</h1>
                     <aside class="notes">
                         <p>At the same time, Ted O'Connor from Apple proposed the srcset attribute for simple DPR selection</p>
                         <p>Hixie added it to the spec over the weekend without much public discussion, then tried to retrofit the other use
                         cases into it</p>
                     </aside>
                 </section>
-                <section data-background="cc_resources/regime.jpg">
-                    <div class="credits bottom" style="margin-top: 100px;">https://www.flickr.com/photos/ramyraoof/5409873373</div>
+                <section data-background="cc_resources/regime.jpg" data-background-size="116%">
+                    <div class="credits bottom bright">https://www.flickr.com/photos/ramyraoof/5409873373</div>
                     <aside class="notes">
                         <p>A lot of mailing list flame wars. Things got tense.</p>
                     </aside>
@@ -275,7 +288,7 @@
                     </aside>
                 </section>
                 <section>
-                    <h2>Moar proposals???</h2>
+                    <h1>Moar proposals???</h1>
                     <div><img width=400px src="cc_resources/yuno.png"></div>
                     <div style="font-size: 2em;width: 800px; margin: auto">Y U NO *</div>
                     <div class="credits bottom" style="margin-top: 100px;">https://openclipart.org/detail/162577/yuno---meme-by-genx</div>
@@ -355,27 +368,26 @@
                     <div class="credits bottom bright">https://www.flickr.com/photos/luchilu/2183156848</div>
                 </section>
                 <section>
-                    <h2>&lt;/history&gt;</h2>
+                    <h1>&lt;/history&gt;</h1>
                 </section>
                 <section>
-                    <h2>&lt;syntax&gt;</h2>
+                    <h1>&lt;syntax&gt;</h1>
                 </section>
                 <section>
-                    <h2>Picture 2.0&trade;</h2>
+                    <h1>Picture 2.0&trade;</h1>
                     <!-- frankenstein things -->
                     <aside class="notes">
                         <p>Let's take a closer look at each one of the parts combining the latest spec.</p>
                     </aside>
                 </section>
                 <section>
-                    <h2>The srcset 'x' part</h2>
+                    <h1>The srcset 'x' part</h1>
                     <aside class="notes">
                         <p>The oldest part of the spec, goes back to the WHAWG 2012 days</p>
                     </aside>
                 </section>
                 <section>
-                    <h2>Use case - "Retina images"</h2>
-                    <img width=600px src="resources/500P_phone_blurry_images.jpg">
+                    <h1>Use case</h1><h1>"Retina images"</h1>
                 </section>
                 <section>
                     <h2>Load hi-res images</h2><h2>on hi-res devices</h2>
@@ -395,10 +407,10 @@
                     </aside>
                 </section>
                 <section>
-                    <h2>The &lt;picture&gt; part</h2>
+                    <h1>The &lt;picture&gt; part</h1>
                 </section>
                 <section>
-                    <h2>Use case - Art direction</h2>
+                    <h1>Use case</h1><h1>Art direction</h1>
                     <p><img src="resources/w3c_resp_img_art_direction.jpg"></p>
                 </section>
                 <section>
@@ -442,7 +454,7 @@
                     </aside>
                 </section>
                 <section>
-                    <h2>use case - variable width images</h2>
+                    <h1>use case</h1><h1>variable width images</h1>
                     <img width=600px src="resources/viewport_selection_mob_first.jpg">
                 </section>
                 <section>
@@ -477,13 +489,13 @@
                     </code></pre>
                 </section>
                 <section>
-                    <h2>&lt;/syntax&gt;</h2>
+                    <h1>&lt;/syntax&gt;</h1>
                 </section>
                 <section>
-                    <h2>&lt;support&gt;</h2>
+                    <h1>&lt;support&gt;</h1>
                 </section>
                 <section>
-                    <h1>Blink - Chrome &amp; Opera</h1>
+                    <h1>Blink</h1><h1>Chrome &amp; Opera</h1>
                     <aside class="notes">
                         (fragments)
                         <p>I started out by implementing srcset's x descriptor. It shipped in Chrome/Opera stable a few months back.</p>
@@ -504,14 +516,14 @@
                     </aside>
                 </section>
                 <section>
-                    <h2>IE</h2>
+                    <h1>IE</h1>
                     <aside class="notes">
                     Showing interest
                         <p>They're showing up on IRC and mailing lists, asking good questions.</p>
                     </aside>
                 </section>
                 <section>
-                    <h2>WebKit</h2>
+                    <h1>WebKit</h1>
                     <aside class="notes">
                     <p >Implemented &amp; shipped srcset's 'x' descriptor</p>
                     <p >sizes and srcset are fully implemented</p>
@@ -519,10 +531,10 @@
                     </aside>
                 </section>
                 <section>
-                    <h2>&lt;/support&gt;</h2>
+                    <h1>&lt;/support&gt;</h1>
                 </section>
                 <section>
-                    <h2>&lt;advice&gt;</h2>
+                    <h1>&lt;advice&gt;</h1>
                     <aside class="notes">
                         So, what do we tell our users?
                     </aside>
@@ -535,7 +547,7 @@
                     </aside>
                 </section>
                 <section>
-                    <h2>Source order matters</h2>
+                    <h1>Source order matters</h1>
                     <pre><code data-trim data-noescape>
 <span class=highlight>&lt;picture&gt;</span>
      <span class=highlight>&lt;source media="(min-width: 45em)"</span> srcset="large.jpg"&gt;
@@ -553,7 +565,7 @@
                     </code></pre>
                 </section>
                 <section>
-                    <h2>Source-size order matters</h2>
+                    <h1>Source-size order matters</h1>
                     <pre><code data-trim data-noescape>
 sizes=<span class=highlight>"(max-width: 30em) 100vw, 
      (max-width: 50em) 50vw, 
@@ -567,7 +579,7 @@ sizes=<span class=highlight>"(max-width: 50em) 50vw,
                     </code></pre>
                 </section>
                 <section>
-                    <h2>'sizes' default value</h2>
+                    <h1>'sizes' default value</h1>
                     <pre><code data-trim data-noescape>
 &lt;img src="otherpic.jpg" alt="The president giving an award."
      srcset="pic100.jpg 100w, pic200.jpg 200w"&gt;
@@ -585,7 +597,7 @@ sizes=<span class=highlight>"(max-width: 50em) 50vw,
                     </aside>
                 </section>
                 <section>
-                    <h2>Intrinsic sizing</h2>
+                    <h1>Intrinsic sizing</h1>
                     <p><img src="resources/intrinsicSizingX.png"></p>
                     <aside class="notes">
                         <p>Both the 'x' descriptor and the 'w' have an impact on the image's intrinsic size.</p>
@@ -595,7 +607,7 @@ sizes=<span class=highlight>"(max-width: 50em) 50vw,
                     </aside>
                 </section>
                 <section>
-                    <h2>Moar intrinsic sizing</h2>
+                    <h1>Moar intrinsic sizing</h1>
                     <p><img src="resources/intrinsic_sizing_w.png"></p>
                     <aside class="notes">
                     </aside>
@@ -612,7 +624,7 @@ sizes=<span class=highlight>"(max-width: 50em) 50vw,
                     </aside>
                 </section>
                 <section>
-                    <h2>Styling</h2>
+                    <h1>Styling</h1>
                     <h3 style="margin-top: 120px">"Picture is a magical span, nothing more"</h3>
                     <p style="text-align: right">- Tab Atkins</p>
                     <!-- Add a picture of a unicore thing -->
@@ -623,7 +635,7 @@ sizes=<span class=highlight>"(max-width: 50em) 50vw,
                     </aside>
                 </section>
                 <section>
-                    <h2>Future compat</h2>
+                    <h1>Future compat</h1>
                     <h3>Feature detection FTW!</h3>
                     <pre style="display:inline"><code style="display: inline; margin-left: 0">HTMLImageElement.sizes</code><span> &amp; </span><code style="display: inline; margin-left: 0">HTMLPictureElement</code></pre>
                     <aside class="notes">
@@ -642,13 +654,13 @@ sizes=<span class=highlight>"(max-width: 50em) 50vw,
                     </aside>
                 </section>
                 <section>
-                    <h2>&lt;/advice&gt;</h2>
+                    <h1>&lt;/advice&gt;</h1>
                 </section>
                 <section>
-                    <h2>The path not (yet) taken</h2>
+                    <h1>The path not (yet) taken</h1>
                 </section>
                 <section>
-                    <h2>Client Hints</h2>
+                    <h1>Client Hints</h1>
                     <aside class="notes">
                     </aside>
                 </section>
@@ -768,8 +780,10 @@ sizes=<span class=highlight>"(max-width: 50em) 50vw,
                     </aside>
                 </section>
                 <section>
-                    <h2>To sum it up</h2>
-                    <img width=800px src="resources/braceyourselves.jpg">
+                    <h1>To sum it up</h1>
+                </section>
+                <section>
+                    <h1>Responsive images</h1><h1>are <span class="strikeout">coming</span> HERE!</h1>
                 </section>
                 <section>
                     <h1>Thanks!</h1>
@@ -778,7 +792,7 @@ sizes=<span class=highlight>"(max-width: 50em) 50vw,
                     <p>Slides: <a href="http://yoavweiss.github.io/respimg-indi-workshop/">yoavweiss.github.io/respimg-indi-workshop</a></p>
                 </section>
                 <section>
-                    <h2>Questions?</h2>
+                    <h1>Questions?</h1>
                 </section>
                 <!--
                 <section>
