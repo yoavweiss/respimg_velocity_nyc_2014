@@ -45,10 +45,15 @@
             .strikeout::after {
                 border-bottom: 7px solid black;
                 content: "";
-                left: 0;
+                left: 30%;
                 position: absolute;
-                right: 0;
+                right: 40%;
                 top: 60%;
+            }
+            .smallstrike::after {
+                left: 25%;
+                right: 47%;
+                top: 50%;
             }
         </style>
     </head>
@@ -93,17 +98,36 @@
                     <aside class="notes">
                     </aside>
                 </section>
-                <section data-background="cc_resources/iphone_4.jpg">
-                    <h1 class=bright>Started out as a quality issue</h1>
-                    <!--<img height=500px src="cc_resources/iphone_4.jpg" alt="iPhone4 on a big screen">-->
-                    <div class="credits bottom bright">https://www.flickr.com/photos/benm_at/4682405865</div>
+                <section data-background="cc_resources/dinosaur.jpg">
+                    <h1>At the beginning</h1>
+                    <div class="credits bottom bright">https://www.flickr.com/photos/scottkinmartin/457428714</div>
                     <aside class="notes">
-                        <p>It started out (or at least got people's attention) as a quality issue.</p>
-                        <p>The solution to that was simple - just send users the big images</p>
+                        First - Mobile only Web sites
+                    </aside>
+                </section>
+                <section data-background="cc_resources/keynote.jpg">
+                    <h1><span class="strikeout smallstrike">Mobile</span> Web</h1>
+                    <aside class="notes">
+                        Then shock!
+                    </aside>
+                </section>
+                <section data-background="cc_resources/platypus.jpg">
+                    <h1 class=bright style="width: 300px; margin:auto">RWD</h1>
+                    <ul style="line-height: 1.8em">
+                        <li class=bright style="font-size: 2em;">Media Queries</li>
+                        <li class=bright style="font-size: 2em;">Fluid grids</li>
+                        <li class=bright style="font-size: 2em;">Flexible images</li>
+                    </ul>
+                    <div class="credits bottom bright">https://www.flickr.com/photos/urville_djasim/36118a89680</div>
+                    <aside class="notes">
+                        Then RWD came, a mixture of new browser features and a coherent way to us them
                     </aside>
                 </section>
                 <section>
-                    <h1>"But that's easy"</h1>
+                    <h1>Flexible images???</h1>
+                </section>
+                <section>
+                    <h1>"That's easy"</h1>
                     <aside class="notes">
                     </aside>
 				</section>
@@ -162,8 +186,7 @@
                     </aside>
                 </section>
                 <section data-background="cc_resources/expensive.jpg">
-                    <h2 class=dark style="width: 600px;margin:auto; padding-bottom: 20px;">So quality issues became</h2>
-                    <p style="margin: auto;margin-top: 200px; width: 900px;font-size: 3.5em; font-weight: bold" class="fragment dark">data plan abuse</p>
+                    <p style="margin: auto;margin-top: 200px; width: 900px;font-size: 3.5em; font-weight: bold" class="dark">data plan abuse</p>
                     <div class="credits dark" style="margin-top: 100px;">https://www.flickr.com/photos/9731367@N02/6988181354</div>
                     <aside class="notes">
                         This has turned out to be an abuse of our users data plans, which may be limited.
