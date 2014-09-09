@@ -55,6 +55,9 @@
                 right: 47%;
                 top: 50%;
             }
+            .bright .strikeout::after {
+                border-bottom: 7px solid white;
+            }
         </style>
     </head>
 
@@ -99,19 +102,23 @@
                     </aside>
                 </section>
                 <section data-background="cc_resources/dinosaur.jpg">
-                    <h1>At the beginning</h1>
+                    <h1 class="bright" style="width: 1000px;margin:auto;">At the beginning</h1>
                     <div class="credits bottom bright">https://www.flickr.com/photos/scottkinmartin/457428714</div>
                     <aside class="notes">
                         First - Mobile only Web sites
                     </aside>
                 </section>
                 <section data-background="cc_resources/keynote.jpg">
-                    <h1><span class="strikeout smallstrike">Mobile</span> Web</h1>
+                    <h1 class=bright style="width: 700px; margin:auto"><span class="strikeout smallstrike">Mobile</span> Web</h1>
                     <aside class="notes">
                         Then shock!
                     </aside>
                 </section>
-                <section data-background="cc_resources/platypus.jpg">
+                <section data-background="cc_resources/devices.jpg">
+                    <h1 class=bright style="width: 600px;margin:auto;">And then</h1>
+                    <div class="credits bottom bright">http://www.flickr.com/photos/adactio/6153558098/</div>
+                </section>
+                <section data-background="cc_resources/platypus.jpg" data-background-position="center -400px" sata-background-size="80%">
                     <h1 class=bright style="width: 300px; margin:auto">RWD</h1>
                     <ul style="line-height: 1.8em">
                         <li class=bright style="font-size: 2em;">Media Queries</li>
@@ -124,7 +131,7 @@
                     </aside>
                 </section>
                 <section>
-                    <h1>Flexible images???</h1>
+                    <h1>"Flexible images???"</h1>
                 </section>
                 <section>
                     <h1>"That's easy"</h1>
@@ -277,13 +284,6 @@
                     </aside>
                 </section>
                 <section>
-                    <h1>Paris!</h1>
-                    <aside class="notes">
-                        <p>Marcos and I organized a meetup in Mozilla paris. BruceL stood us up.</p>
-                        <p>Nothing got decided, but it laid the foundations for things to come</p>
-                    </aside>
-                </section>
-                <section>
                     <h1>Src-N</h1>
                     <aside class="notes">
                         <p>Then after a long while of little progress</p>
@@ -339,16 +339,6 @@
                     <h2>So, crowdfunding to the rescue</h2>
                     <img src="cc_resources/IGG_logo.png">
                 </section>
-                <section data-background="cc_resources/group.jpg">
-                    <h1 class=bright style="width: 600px; margin:auto; margin-bottom: 30px; margin-top: 300px;">A group effort</h1>
-                    <div class="credits bright">https://www.flickr.com/photos/kheelcenter/5278042253</div>
-                    <aside class="notes">
-                        <p> XXXXXXX - Talk about Wilto and Geri and stuff regarding the IndieGoGo thing</p>
-                        <p>The RICG &amp; whatwg/blink folks are working together on the spec, to make it as awesome as possible. Mozilla is
-                        also heavily involved</p>
-                        <p>The implementation in Blink and Gecko is almost done.</p>
-                    </aside>
-                </section>
                 <section>
                     <h1>It went well</h1>
                     <img src="resources/indiegogo_sum.png">
@@ -372,8 +362,21 @@
                     <h1 class=bright>Shipping in Chrome 38</h1>
                     <div class="credits bottom bright">https://www.flickr.com/photos/luchilu/2183156848</div>
                 </section>
+                <section data-background="cc_resources/group.jpg">
+                    <h1 class=bright style="width: 600px; margin:auto; margin-bottom: 30px; margin-top: 300px;">A group effort</h1>
+                    <div class="credits bright">https://www.flickr.com/photos/kheelcenter/5278042253</div>
+                    <aside class="notes">
+                        <p> XXXXXXX - Talk about Wilto and Geri and stuff regarding the IndieGoGo thing</p>
+                        <p>The RICG &amp; whatwg/blink folks are working together on the spec, to make it as awesome as possible. Mozilla is
+                        also heavily involved</p>
+                        <p>The implementation in Blink and Gecko is almost done.</p>
+                    </aside>
+                </section>
                 <section>
                     <h1>&lt;/history&gt;</h1>
+                    <aside class="notes">
+                        10:00 max!!!
+                    </aside>
                 </section>
                 <section>
                     <h1>&lt;syntax&gt;</h1>
@@ -459,7 +462,6 @@
                     <aside class="notes">
                         <p>The third part is IMO, the most exciting part. </p>
                         <p>This is the major innovation that the original src-N proposal brought </p>
-                        <p>It's the most exciting since it applies almost everywhere, once you look at it. </p><p>It can be used to save bandwidth in
                         both responsive and adaptive designs and even if hi res displays are not involved.</p>
                     </aside>
                 </section>
@@ -475,9 +477,9 @@
      sizes=<span class=highlight>"(max-width: 30em) 100vw, 
           (max-width: 50em) 50vw, 
           calc(33vw - 100px)"</span>
-     srcset="<span class=highlight>pic100.jpg 100w</span>, pic200.jpg 200w, 
-             pic400.jpg 400w, pic800.jpg 800w,
-             pic1600.jpg 1600w, 
+     srcset="<span class=highlight>pic100.jpg 100w</span>, 
+             pic200.jpg 200w, pic400.jpg 400w, 
+             pic800.jpg 800w, pic1600.jpg 1600w, 
              pic3200.jpg 3200w"&gt;
                     </code></pre>
                     <aside class="notes">
@@ -510,7 +512,10 @@
                     <h1>&lt;support&gt;</h1>
                 </section>
                 <section>
-                    <h1>Blink</h1><h1>Chrome &amp; Opera</h1>
+                    <div style="height: 400px">
+                        <img style="border: none" src="cc_resources/chrome.png">
+                        <img style="border: none" src="cc_resources/opera.png">
+                    </div>
                     <aside class="notes">
                         (fragments)
                         <p>I started out by implementing srcset's x descriptor. It shipped in Chrome/Opera stable a few months back.</p>
@@ -524,21 +529,27 @@
                     </aside>
                 </section>
                 <section>
-                    <h1>Firefox</h1>
+                    <div style="height: 400px">
+                        <img style="border: none" src="cc_resources/firefox.png">
+                    </div>
                     <aside class="notes">
                     Planned to ship in Firefox 33!!!
                         John Schoenick from Mozilla is currently working on it. Likely to hit the dev version soon.
                     </aside>
                 </section>
                 <section>
-                    <h1>IE</h1>
+                    <div style="height: 400px">
+                        <img style="border: none" src="cc_resources/ie.png">
+                    </div>
                     <aside class="notes">
                     Showing interest
                         <p>They're showing up on IRC and mailing lists, asking good questions.</p>
                     </aside>
                 </section>
                 <section>
-                    <h1>WebKit</h1>
+                    <div style="height: 400px">
+                        <img style="border: none" src="cc_resources/safari.png">
+                    </div>
                     <aside class="notes">
                     <p >Implemented &amp; shipped srcset's 'x' descriptor</p>
                     <p >sizes and srcset are fully implemented</p>
