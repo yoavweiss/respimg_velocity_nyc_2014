@@ -45,10 +45,10 @@
             .strikeout::after {
                 border-bottom: 7px solid black;
                 content: "";
-                left: 30%;
+                left: 27%;
                 position: absolute;
                 right: 40%;
-                top: 60%;
+                top: 76%;
             }
             .smallstrike::after {
                 left: 25%;
@@ -339,13 +339,6 @@
                     <h2>So, crowdfunding to the rescue</h2>
                     <img src="cc_resources/IGG_logo.png">
                 </section>
-                <section>
-                    <h1>It went well</h1>
-                    <img src="resources/indiegogo_sum.png">
-                    <aside class="notes">
-                        <p>And Chrome &amp; Opera chipped in :)</p>
-                    </aside>
-                </section>
                 <section data-background="cc_resources/Phoenix_landing.jpg">
                     <h1 class=bright style="margin-top: -100px; padding-bottom: 40px;">Patches got landing</h1>
                     <div class="credits bottom bright">http://upload.wikimedia.org/wikipedia/commons/6/6a/Phoenix_landing.jpg</div>
@@ -375,7 +368,7 @@
                 <section>
                     <h1>&lt;/history&gt;</h1>
                     <aside class="notes">
-                        10:00 max!!!
+                        15:00
                     </aside>
                 </section>
                 <section>
@@ -447,6 +440,24 @@
      <span class=highlight>&lt;source media="(min-width: 18em)"</span> 
                srcset="medium.jpg"&gt;
      &lt;img src="small.jpg" alt="The president."&gt;
+<span class=highlight>&lt;/picture&gt;</span>
+                    </code></pre>
+                    <aside class="notes">
+                        <p>Here you can see the syntax parts that make up the "picture" part of the spec, namely the picture element and its
+                        source children. </p>
+                        <p>Each one of the source children, as well as the img child define an image that fits into a certain
+                        responsive breakpoint.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h2>Mime type fallback</h2>
+                    <pre><code data-trim data-noescape>
+<span class=highlight>&lt;picture&gt;</span>
+     <span class=highlight>&lt;source type="image/webp"</span> 
+               srcset="something.webp"&gt;
+     <span class=highlight>&lt;source type="image/vnd.ms-photo"</span> 
+               srcset="something.jpx"&gt;
+     &lt;img src="something.jpg" alt="The president."&gt;
 <span class=highlight>&lt;/picture&gt;</span>
                     </code></pre>
                     <aside class="notes">
@@ -648,18 +659,6 @@ sizes=<span class=highlight>"(max-width: 50em) 50vw,
                     </aside>
                 </section>
                 <section>
-                    <h2>src cannot be selected when 'w' is present</h2>
-                    <pre><code data-trim data-noescape>
-&lt;img <span class=highlight>src="otherpic.jpg"</span>
-     srcset="<span class=highlight>pic100.jpg 100w, 
-           pic200.jpg 200w</span>"&gt;
-                    </code></pre>
-                    <aside class="notes">
-                        If you have 'w' resources, the 'src' resource is not part of the selection algorithm.
-                        That is to avoid surprises.
-                    </aside>
-                </section>
-                <section>
                     <h1>Styling</h1>
                     <h3 style="margin-top: 120px">"Picture is a magical span, nothing more"</h3>
                     <p style="text-align: right">- Tab Atkins</p>
@@ -668,6 +667,12 @@ sizes=<span class=highlight>"(max-width: 50em) 50vw,
                         <p>As far as styling goes, all the style that should impact the image itself, should still go on the img
                         element.</p>
                         <p>Picture is simply a wrapper around that img, which as far as styling goes, behaves like a span.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h1>Alternative text</h1>
+                    <aside class="notes">
+                        alt text stays the same as it always was. On img. Picture has no alt text.
                     </aside>
                 </section>
                 <section>
@@ -707,112 +712,8 @@ sizes=<span class=highlight>"(max-width: 50em) 50vw,
                         <li>Server side logic decides on resource</li>
                         <p>It's a complementary solution that allows for server side image adaptation, on top or instead of client side
                         one</p>
-                        <p>Future doesn't look bright, since Mozilla are opposed to it</p>
-                    </aside>
-                </section>
-                <section>
-                    <h2>Request headers</h2>
-                    <aside class="notes">
-                    </aside>
-				</section>
-                <section>
-                    <h2>CH-DPR</h2>
-                </section>
-                <section>
-                    <h2>CH-RW</h2>
-                    Resource Width
-                    <p>Implicitly relies on 'sizes'</p>
-                </section>
-                <section>
-                    <h2>Response headers</h2>
-                    <aside class="notes">
-                    </aside>
-				</section>
-                <section>
-                    <h2>DPR</h2>
-                    <p>Server confirmation header</p>
-                    <p>Used for intrinsic image sizing</p>
-                    <aside class="notes">
-                    </aside>
-				</section>
-                <section>
-                    <h3>Opt-in only</h3>
-                    <p>Not sent on initial HTML request</p>
-                </section>
-                <section>
-                    <h2>Responsive Image Container</h2>
-                    <ul>
-                        <li class="fragment">File format approach</li>
-                        <li class="fragment">A "layer" per resolution</li>
-                        <li class="fragment">Both resolution switching and art-direction</li>
-                    </ul>
-                </section>
-                <section>
-                    <h3>Resolution switching</h3>
-                    <img src="resources/res_switch_shrink.png">
-                    <p>336x635</p>
-                </section>
-                <section>
-                    Is split into
-                </section>
-                <section>
-                    <img src="resources/res_switch.png_layer1.webp.png">
-                    <p>106x200</p>
-                </section>
-                <section>
-                    <img src="resources/res_switch.png_layer2.webp.png">
-                    <img src="resources/res_switch.png_layer2-bw.png">
-                    <p>211x400</p>
-                </section>
-                <section>
-                    <img src="resources/res_switch.png_layer3.webp.png">
-                    <img src="resources/res_switch.png_layer3-bw.png">
-                    <p>336x635</p>
-                </section>
-                <section>
-                    <h3>Art-direction</h3>
-                    <img src="resources/crop.jpg">
-                    <p>770x512</p>
-                </section>
-                <section>
-                    Is split into
-                </section>
-                <section>
-                    <img src="resources/crop.jpg_layer1.webp.png">
-                    <p>200x200</p>
-                </section>
-                <section>
-                    <img src="resources/crop.jpg_layer2.webp.png">
-                    <p>400x288</p>
-                </section>
-                <section>
-                    <img src="resources/crop.jpg_layer3.webp.png">
-                    <p>770x512</p>
-                </section>
-                <section>
-                    <h3>Advantages</h3>
-                    <ul>
-                        <li class="fragment">Markup left untouched</li>
-                        <li class="fragment">A single file per image</li>
-                        <li class="fragment">Better for post-download dimensions changes</li>
-                    </ul>
-                    <aside class="notes">
-                        <p>No markup</p>
-                        <p>single file</p>
-                        <p>can download diff</p>
-                    </aside>
-                </section>
-                <section>
-                    <h3>disadvantages</h3>
-                    <ul>
-                        <li class="fragment">Touches many layers. Will take time</li>
-                        <li class="fragment">Decoding performance???</li>
-                        <li class="fragment">Fetching mechanism network performance???</li>
-                    </ul>
-                    <aside class="notes">
-                        <p>complicated</p>
-                        <p>decoding perf?</p>
-                        <p>Fetching mechanism</p>
+                        <p>Future doesn't look bright, since some browser people are opposed to it</p>
+                        <p>But, it may be a thing after all</p>
                     </aside>
                 </section>
                 <section>
