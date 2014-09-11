@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title>Yoav Weiss - Responsive images, coming soon to a browser near you</title>
+        <title>Yoav Weiss - Responsive images are coming</title>
 
         <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
         <meta name="author" content="Hakim El Hattab">
@@ -32,33 +32,28 @@
             .reveal .credits { font-size:24px; float: right; }
             .reveal .bright { color: white; background: rgba(128, 128, 128, 0.8);}
             .reveal .dark { color: black; background: rgba(128, 128, 128, 0.8);}
-            .reveal .bottom { margin-top: 250px;}
+            .reveal .bottom { margin-top: 450px;}
             .reveal h1.bright, .reveal h2.bright { padding-bottom: 20px; }
-            code span.highlight {font-weight: bold; font-size: 1.2em;}
-            .reveal pre code {font-size: 2em; line-height: 1.5em; max-height: 800px;}
+            code span.highlight {font-weight: bold; font-size: 1.4em;}
+            .reveal code {font-size: 1.2em; width: 120%;margin-left: -10%;line-height: 1.3em;}
+            //.reveal .slides > section{ height: 720px; } 
+            //.reveal .slides > section{ min-height: 560px; } 
             h1.large { font-size: 8em; }
+            /*
+            .reveal .slides {
+                  height: 100%;
+                    top: 0;
+                      margin-top: 0;
+            }
 
-            // Thanks to http://stackoverflow.com/questions/2539207/how-to-change-the-strike-out-line-through-thickness-in-css
-            .strikeout {
-                position: relative;
+            .reveal .slides>section {
+                  min-height: 90%;
             }
-            .strikeout::after {
-                border-bottom: 7px solid black;
-                content: "";
-                left: 27%;
-                position: absolute;
-                right: 40%;
-                top: 76%;
+
+            .reveal .slides>section>section {
+                  min-height: 100%;
             }
-            .smallstrike::after {
-                left: 25%;
-                right: 47%;
-                top: 50%;
-            }
-            .bright .strikeout::after {
-                border-bottom: 7px solid white;
-            }
-            .reveal section iframe {border: black 20px solid; border-radius: 10px; }
+            */
         </style>
     </head>
 
@@ -69,9 +64,10 @@
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
                 <section>
-                    <h1>Responsive Images:</h1>
-                    <h1>Coming Soon!</h1>
-                    <div style="margin-top: 100px"> <a href="https://twitter.com/yoavweiss">Yoav Weiss</a></div>
+                    <h1>Responsive Images are coming</h1>
+                    <p> <a href="https://twitter.com/yoavweiss">Yoav Weiss</a></p>
+                    <p>Velocity - NYC, September 2014</p>
+                    <p><a href="http://yoavweiss.github.io/respimg-velocitynyc-talk/">yoavweiss.github.io/respimg-velocitynyc-talk</a></p>
                     <aside class="notes">
                     </aside>
                 </section>
@@ -98,54 +94,31 @@
                     <h2> Efficiently load properly dimensioned images that fit the page's design</h2>
                 </section>
                 <section>
-                    <h1>&lt;history&gt;</h1>
+                    <h2>&lt;history&gt;</h2>
                     <aside class="notes">
                     </aside>
                 </section>
-                <section data-background="cc_resources/dinosaur.jpg">
-                    <h1 class="bright" style="width: 1000px;margin:auto;">At the beginning</h1>
-                    <div class="credits bottom bright">https://www.flickr.com/photos/scottkinmartin/457428714</div>
+                <section data-background="cc_resources/iphone_4.jpg">
+                    <h1 class=bright>Started out as a quality issue</h1>
+                    <!--<img height=500px src="cc_resources/iphone_4.jpg" alt="iPhone4 on a big screen">-->
+                    <div class="credits bottom bright">https://www.flickr.com/photos/benm_at/4682405865</div>
                     <aside class="notes">
-                        First - Mobile only Web sites
-                    </aside>
-                </section>
-                <section data-background="cc_resources/keynote.jpg">
-                    <h1 class=bright style="width: 700px; margin:auto"><span class="strikeout smallstrike">Mobile</span> Web</h1>
-                    <aside class="notes">
-                        Then shock!
-                    </aside>
-                </section>
-                <section data-background="cc_resources/devices.jpg">
-                    <h1 class=bright style="width: 600px;margin:auto;">And then</h1>
-                    <div class="credits bottom bright">http://www.flickr.com/photos/adactio/6153558098/</div>
-                </section>
-                <section data-background="cc_resources/platypus.jpg" data-background-position="center -400px" sata-background-size="80%">
-                    <h1 class=bright style="width: 300px; margin:auto">RWD</h1>
-                    <ul style="line-height: 1.8em">
-                        <li class=bright style="font-size: 2em;">Media Queries</li>
-                        <li class=bright style="font-size: 2em;">Fluid grids</li>
-                        <li class=bright style="font-size: 2em;">Flexible images</li>
-                    </ul>
-                    <div class="credits bottom bright">https://www.flickr.com/photos/urville_djasim/36118a89680</div>
-                    <aside class="notes">
-                        Then RWD came, a mixture of new browser features and a coherent way to us them
+                        <p>It started out (or at least got people's attention) as a quality issue.</p>
+                        <p>The solution to that was simple - just send users the big images</p>
                     </aside>
                 </section>
                 <section>
-                    <h1>"Flexible images???"</h1>
-                </section>
-                <section>
-                    <h1>"That's easy"</h1>
+                    <h2>"But that's easy"</h2>
                     <aside class="notes">
                     </aside>
 				</section>
                 <section>
-                    <h1>"Just send the largest possible image"</h1>
+                    <h2>"Just send the largest possible image"</h2>
                     <aside class="notes">
                     </aside>
 				</section>
                 <section>
-                    <h1>"And let the browser resize it"</h1>
+                    <h2>"And let the browser resize it"</h2>
                     <aside class="notes">
                     </aside>
 				</section>
@@ -194,7 +167,8 @@
                     </aside>
                 </section>
                 <section data-background="cc_resources/expensive.jpg">
-                    <p style="margin: auto;margin-top: 200px; width: 900px;font-size: 3.5em; font-weight: bold" class="dark">data plan abuse</p>
+                    <h2 class=dark style="width: 600px;margin:auto; padding-bottom: 20px;">So quality issues became</h2>
+                    <p style="margin: auto;margin-top: 200px; width: 900px;font-size: 3.5em; font-weight: bold" class="fragment dark">data plan abuse</p>
                     <div class="credits dark" style="margin-top: 100px;">https://www.flickr.com/photos/9731367@N02/6988181354</div>
                     <aside class="notes">
                         This has turned out to be an abuse of our users data plans, which may be limited.
@@ -211,52 +185,52 @@
                 </section>
                 <section data-background="cc_resources/Angry_mob_of_four.jpg">
                     <h1 style="background: rgba(128,128,128,0.8);color: white; font-size: 4em;padding-bottom: 20px;">People demanded a solution</h1>
-                    <div class="credits bottom bright">http://www.flickr.com/photos/29233640@N07/3645211083</div>
+                    <div class="credits bottom" style="margin-top:
+                        200px;float:none">http://www.flickr.com/photos/29233640@N07/3645211083</div>
                 </section>
                 <section>
                     <h2>Turned to the mailing lists</h2>
-                    <div><img width=400px src="resources/duty_calls.png"></div>
-                    <div class="credits">http://xkcd.com/386/</div>
+                    <img width=500px src="resources/duty_calls.png">
                 </section>
                 <section>
-                    <h1>Proposals!</h1>
+                    <h2>Proposals!</h2>
                     <div><img width=400px src="cc_resources/yuno.png"></div>
                     <div style="font-size: 2em;width: 800px; margin: auto">Y U NO MEDIA ATTR</div>
                     <div class="credits bottom" style="margin-top: 100px;">https://openclipart.org/detail/162577/yuno---meme-by-genx</div>
                 </section>
                 <section>
-                    <h1>Moar proposals!</h1>
+                    <h2>Moar proposals!</h2>
                     <div><img width=400px src="cc_resources/yuno.png"></div>
                     <div style="font-size: 2em;width: 800px; margin: auto">Y U NO CSS</div>
                     <div class="credits bottom" style="margin-top: 100px;">https://openclipart.org/detail/162577/yuno---meme-by-genx</div>
                 </section>
                 <section>
-                    <h1>And MOAR!!!</h1>
+                    <h2>And MOAR!!!</h2>
                     <div><img width=400px src="cc_resources/yuno.png"></div>
                     <div style="font-size: 2em;width: 800px; margin: auto">Y U NO JS</div>
                     <div class="credits bottom" style="margin-top: 100px;">https://openclipart.org/detail/162577/yuno---meme-by-genx</div>
                 </section>
-                <section data-background="cc_resources/RICG_Logo_Red.png" data-background-size="99%">
+                <section data-background="cc_resources/RICG_Logo_Red.png">
                     <aside class="notes">
                     <h2>And the RICG was born</h2>
                     </aside>
                 </section>
                 <section>
-                    <h1>&lt;picture&gt; proposal</h1>
+                    <h2>&lt;picture&gt; proposal</h2>
                     <aside class="notes">
                         <p>The RICG discussed the issue for a few months and came up with the picture element proposal</p>
                     </aside>
                 </section>
                 <section>
-                    <h1>srcset proposal</h1>
+                    <h2>srcset proposal</h2>
                     <aside class="notes">
                         <p>At the same time, Ted O'Connor from Apple proposed the srcset attribute for simple DPR selection</p>
                         <p>Hixie added it to the spec over the weekend without much public discussion, then tried to retrofit the other use
                         cases into it</p>
                     </aside>
                 </section>
-                <section data-background="cc_resources/regime.jpg" data-background-size="116%">
-                    <div class="credits bottom bright">https://www.flickr.com/photos/ramyraoof/5409873373</div>
+                <section data-background="cc_resources/regime.jpg">
+                    <div class="credits bottom" style="margin-top: 100px;">https://www.flickr.com/photos/ramyraoof/5409873373</div>
                     <aside class="notes">
                         <p>A lot of mailing list flame wars. Things got tense.</p>
                     </aside>
@@ -285,6 +259,13 @@
                     </aside>
                 </section>
                 <section>
+                    <h1>Paris!</h1>
+                    <aside class="notes">
+                        <p>Marcos and I organized a meetup in Mozilla paris. BruceL stood us up.</p>
+                        <p>Nothing got decided, but it laid the foundations for things to come</p>
+                    </aside>
+                </section>
+                <section>
                     <h1>Src-N</h1>
                     <aside class="notes">
                         <p>Then after a long while of little progress</p>
@@ -294,7 +275,7 @@
                     </aside>
                 </section>
                 <section>
-                    <h1>Moar proposals???</h1>
+                    <h2>Moar proposals???</h2>
                     <div><img width=400px src="cc_resources/yuno.png"></div>
                     <div style="font-size: 2em;width: 800px; margin: auto">Y U NO *</div>
                     <div class="credits bottom" style="margin-top: 100px;">https://openclipart.org/detail/162577/yuno---meme-by-genx</div>
@@ -340,6 +321,23 @@
                     <h2>So, crowdfunding to the rescue</h2>
                     <img src="cc_resources/IGG_logo.png">
                 </section>
+                <section data-background="cc_resources/group.jpg">
+                    <h1 class=bright style="width: 600px; margin:auto; margin-bottom: 30px; margin-top: 300px;">A group effort</h1>
+                    <div class="credits bright">https://www.flickr.com/photos/kheelcenter/5278042253</div>
+                    <aside class="notes">
+                        <p> XXXXXXX - Talk about Wilto and Geri and stuff regarding the IndieGoGo thing</p>
+                        <p>The RICG &amp; whatwg/blink folks are working together on the spec, to make it as awesome as possible. Mozilla is
+                        also heavily involved</p>
+                        <p>The implementation in Blink and Gecko is almost done.</p>
+                    </aside>
+                </section>
+                <section>
+                    <h1>It went well</h1>
+                    <img src="resources/indiegogo_sum.png">
+                    <aside class="notes">
+                        <p>And Chrome &amp; Opera chipped in :)</p>
+                    </aside>
+                </section>
                 <section data-background="cc_resources/Phoenix_landing.jpg">
                     <h1 class=bright style="margin-top: -100px; padding-bottom: 40px;">Patches got landing</h1>
                     <div class="credits bottom bright">http://upload.wikimedia.org/wikipedia/commons/6/6a/Phoenix_landing.jpg</div>
@@ -356,40 +354,28 @@
                     <h1 class=bright>Shipping in Chrome 38</h1>
                     <div class="credits bottom bright">https://www.flickr.com/photos/luchilu/2183156848</div>
                 </section>
-                <section data-background="cc_resources/group.jpg">
-                    <h1 class=bright style="width: 600px; margin:auto; margin-bottom: 30px; margin-top: 300px;">A group effort</h1>
-                    <div class="credits bright">https://www.flickr.com/photos/kheelcenter/5278042253</div>
-                    <aside class="notes">
-                        <p> XXXXXXX - Talk about Wilto and Geri and stuff regarding the IndieGoGo thing</p>
-                        <p>The RICG &amp; whatwg/blink folks are working together on the spec, to make it as awesome as possible. Mozilla is
-                        also heavily involved</p>
-                        <p>The implementation in Blink and Gecko is almost done.</p>
-                    </aside>
+                <section>
+                    <h2>&lt;/history&gt;</h2>
                 </section>
                 <section>
-                    <h1>&lt;/history&gt;</h1>
-                    <aside class="notes">
-                        15:00
-                    </aside>
+                    <h2>&lt;syntax&gt;</h2>
                 </section>
                 <section>
-                    <h1>&lt;syntax&gt;</h1>
-                </section>
-                <section>
-                    <h1>Picture 2.0&trade;</h1>
+                    <h2>Picture 2.0&trade;</h2>
                     <!-- frankenstein things -->
                     <aside class="notes">
                         <p>Let's take a closer look at each one of the parts combining the latest spec.</p>
                     </aside>
                 </section>
                 <section>
-                    <h1>The srcset 'x' part</h1>
+                    <h2>The srcset 'x' part</h2>
                     <aside class="notes">
                         <p>The oldest part of the spec, goes back to the WHAWG 2012 days</p>
                     </aside>
                 </section>
                 <section>
-                    <h1>Use case</h1><h1>"Retina images"</h1>
+                    <h2>Use case - "Retina images"</h2>
+                    <img width=600px src="resources/500P_phone_blurry_images.jpg">
                 </section>
                 <section>
                     <h2>Load hi-res images</h2><h2>on hi-res devices</h2>
@@ -401,8 +387,7 @@
                 <section>
                     <h2>The syntax</h2>
                     <pre><code data-trim data-noescape>
-&lt;img src=<span class=highlight>"1x.jpg" 
-    srcset="2x.jpg 2x, 3x.jpg 3x"</span> 
+&lt;img src=<span class=highlight>"1x.jpg" srcset="2x.jpg 2x, 3x.jpg 3x"</span> 
      alt="The president."&gt;
                     </code></pre>
                     <aside class="notes">
@@ -410,24 +395,15 @@
                     </aside>
                 </section>
                 <section>
-                    <iframe src="cat_on_phone.html" width="1200px" height="800px"></iframe>
-                    <div class="credits">https://www.flickr.com/photos/joshsemans/3595245177</div>
+                    <h2>The &lt;picture&gt; part</h2>
                 </section>
                 <section>
-                    <iframe src="cat_on_phone.html" width="400px" height="800px"></iframe>
-                </section>
-                <section>
-                    <h1>The &lt;picture&gt; part</h1>
-                </section>
-                <section>
-                    <h1>Use case</h1><h1>Art direction</h1>
+                    <h2>Use case - Art direction</h2>
                     <p><img src="resources/w3c_resp_img_art_direction.jpg"></p>
                 </section>
                 <section>
                     <h2>Use case #2 - MIME type fallback</h2>
                     <img src="resources/kodak-rgbssim-fs-ratio.png">
-                    <div class="credits">https://people.mozilla.org/~josh/lossy_compressed_image_study_october_2013/</div>
-
                     <aside class="notes">
                         <p>Today's Web have become fragmented when it comes to image formats.</p>
                         <p>We may not like it, but that's the truth :(</p>
@@ -443,35 +419,9 @@
                     <h2>The syntax</h2>
                     <pre><code data-trim data-noescape>
 <span class=highlight>&lt;picture&gt;</span>
-     <span class=highlight>&lt;source media="(min-width: 45em)"</span> 
-               srcset="large.jpg"&gt;
-     <span class=highlight>&lt;source media="(min-width: 18em)"</span> 
-               srcset="medium.jpg"&gt;
+     <span class=highlight>&lt;source media="(min-width: 45em)"</span> srcset="large.jpg"&gt;
+     <span class=highlight>&lt;source media="(min-width: 18em)"</span> srcset="medium.jpg"&gt;
      &lt;img src="small.jpg" alt="The president."&gt;
-<span class=highlight>&lt;/picture&gt;</span>
-                    </code></pre>
-                    <aside class="notes">
-                        <p>Here you can see the syntax parts that make up the "picture" part of the spec, namely the picture element and its
-                        source children. </p>
-                        <p>Each one of the source children, as well as the img child define an image that fits into a certain
-                        responsive breakpoint.</p>
-                    </aside>
-                </section>
-                <section>
-                    <iframe src="fancy_device.html" width="800px" height="800px"></iframe>
-                </section>
-                <section>
-                    <iframe src="fancy_device.html" width="400px" height="800px"></iframe>
-                </section>
-                <section>
-                    <h2>Mime type fallback</h2>
-                    <pre><code data-trim data-noescape>
-<span class=highlight>&lt;picture&gt;</span>
-     <span class=highlight>&lt;source type="image/webp"</span> 
-               srcset="something.webp"&gt;
-     <span class=highlight>&lt;source type="image/vnd.ms-photo"</span> 
-               srcset="something.jpx"&gt;
-     &lt;img src="something.jpg" alt="The president."&gt;
 <span class=highlight>&lt;/picture&gt;</span>
                     </code></pre>
                     <aside class="notes">
@@ -487,24 +437,23 @@
                     <aside class="notes">
                         <p>The third part is IMO, the most exciting part. </p>
                         <p>This is the major innovation that the original src-N proposal brought </p>
+                        <p>It's the most exciting since it applies almost everywhere, once you look at it. </p><p>It can be used to save bandwidth in
                         both responsive and adaptive designs and even if hi res displays are not involved.</p>
                     </aside>
                 </section>
                 <section>
-                    <h1>use case</h1><h1>variable width images</h1>
+                    <h2>use case - variable width images</h2>
                     <img width=600px src="resources/viewport_selection_mob_first.jpg">
                 </section>
                 <section>
                     <h2>The syntax</h2>
                     <pre><code data-trim data-noescape>
-&lt;img src="otherpic.jpg" 
-     alt="The president giving an award."
+&lt;img src="otherpic.jpg" alt="The president giving an award."
      sizes=<span class=highlight>"(max-width: 30em) 100vw, 
-          (max-width: 50em) 50vw, 
-          calc(33vw - 100px)"</span>
-     srcset="<span class=highlight>pic100.jpg 100w</span>, 
-             pic200.jpg 200w, pic400.jpg 400w, 
-             pic800.jpg 800w, pic1600.jpg 1600w, 
+         (max-width: 50em) 50vw, 
+         calc(33vw - 100px)"</span>
+     srcset="<span class=highlight>pic100.jpg 100w</span>, pic200.jpg 200w, 
+             pic400.jpg 400w, pic800.jpg 800w, pic1600.jpg 1600w, 
              pic3200.jpg 3200w"&gt;
                     </code></pre>
                     <aside class="notes">
@@ -512,42 +461,29 @@
                     </aside>
                 </section>
                 <section>
-                    <iframe src="cat_on_phone_flex.html" width="1200px" height="800px"></iframe>
-                    <div class="credits">https://www.flickr.com/photos/joshsemans/3595245177</div>
-                </section>
-                <section>
-                    <iframe src="cat_on_phone_flex.html" width="400px" height="800px"></iframe>
-                </section>
-                <section>
                     <h2>All together now</h2>
-                </section>
-                <section>
                     <pre><code data-trim data-noescape>
 &lt;picture&gt;
     &lt;source media="(min-width: 80em)"
-            srcset="fixed_with_bg.1x.jpg 1x, 
-                    fixed_with_bg.2x.jpg 2x"&gt;
-    &lt;img src="otherpic.jpg" 
-         alt="The president giving an award."
+            srcset="fixed_with_bg.1x.jpg 1x, fixed_with_bg.2x.jpg 2x"&gt;
+    &lt;img src="otherpic.jpg" alt="The president giving an award."
          sizes="(max-width: 30em) 100vw, 
                 (max-width: 50em) 50vw, 
                 calc(33vw - 100px)"
          srcset="pic100.jpg 100w, pic200.jpg 200w, 
-                 pic400.jpg 400w, ..." &gt;
+                 pic400.jpg 400w, pic800.jpg 800w, pic1600.jpg 1600w, 
+                 pic3200.jpg 3200w"&gt;
 &lt;/picture&gt;
                     </code></pre>
                 </section>
                 <section>
-                    <h1>&lt;/syntax&gt;</h1>
+                    <h2>&lt;/syntax&gt;</h2>
                 </section>
                 <section>
-                    <h1>&lt;support&gt;</h1>
+                    <h2>&lt;support&gt;</h2>
                 </section>
                 <section>
-                    <div style="height: 400px">
-                        <img style="border: none" src="cc_resources/chrome.png">
-                        <img style="border: none" src="cc_resources/opera.png">
-                    </div>
+                    <h1>Blink - Chrome &amp; Opera</h1>
                     <aside class="notes">
                         (fragments)
                         <p>I started out by implementing srcset's x descriptor. It shipped in Chrome/Opera stable a few months back.</p>
@@ -561,27 +497,21 @@
                     </aside>
                 </section>
                 <section>
-                    <div style="height: 400px">
-                        <img style="border: none" src="cc_resources/firefox.png">
-                    </div>
+                    <h1>Firefox</h1>
                     <aside class="notes">
                     Planned to ship in Firefox 33!!!
                         John Schoenick from Mozilla is currently working on it. Likely to hit the dev version soon.
                     </aside>
                 </section>
                 <section>
-                    <div style="height: 400px">
-                        <img style="border: none" src="cc_resources/ie.png">
-                    </div>
+                    <h2>IE</h2>
                     <aside class="notes">
                     Showing interest
                         <p>They're showing up on IRC and mailing lists, asking good questions.</p>
                     </aside>
                 </section>
                 <section>
-                    <div style="height: 400px">
-                        <img style="border: none" src="cc_resources/safari.png">
-                    </div>
+                    <h2>WebKit</h2>
                     <aside class="notes">
                     <p >Implemented &amp; shipped srcset's 'x' descriptor</p>
                     <p >sizes and srcset are fully implemented</p>
@@ -589,10 +519,10 @@
                     </aside>
                 </section>
                 <section>
-                    <h1>&lt;/support&gt;</h1>
+                    <h2>&lt;/support&gt;</h2>
                 </section>
                 <section>
-                    <h1>&lt;advice&gt;</h1>
+                    <h2>&lt;advice&gt;</h2>
                     <aside class="notes">
                         So, what do we tell our users?
                     </aside>
@@ -605,39 +535,31 @@
                     </aside>
                 </section>
                 <section>
-                    <h1>Source order matters</h1>
+                    <h2>Source order matters</h2>
                     <pre><code data-trim data-noescape>
 <span class=highlight>&lt;picture&gt;</span>
-     <span class=highlight>&lt;source media="(min-width: 45em)"</span> 
-               srcset="large.jpg"&gt;
-     <span class=highlight>&lt;source media="(min-width: 18em)"</span> 
-               srcset="medium.jpg"&gt;
+     <span class=highlight>&lt;source media="(min-width: 45em)"</span> srcset="large.jpg"&gt;
+     <span class=highlight>&lt;source media="(min-width: 18em)"</span> srcset="medium.jpg"&gt;
+     &lt;img src="small.jpg" alt="The president."&gt;
+<span class=highlight>&lt;/picture&gt;</span>
+                    </code></pre>
+                    !=
+                    <pre><code data-trim data-noescape>
+<span class=highlight>&lt;picture&gt;</span>
+     <span class=highlight>&lt;source media="(min-width: 18em)"</span> srcset="medium.jpg"&gt;
+     <span class=highlight>&lt;source media="(min-width: 45em)"</span> srcset="large.jpg"&gt;
      &lt;img src="small.jpg" alt="The president."&gt;
 <span class=highlight>&lt;/picture&gt;</span>
                     </code></pre>
                 </section>
                 <section>
-                    <h1>!=</h1>
-                    <pre><code data-trim data-noescape>
-<span class=highlight>&lt;picture&gt;</span>
-     <span class=highlight>&lt;source media="(min-width: 18em)"</span> 
-               srcset="medium.jpg"&gt;
-     <span class=highlight>&lt;source media="(min-width: 45em)"</span> 
-               srcset="large.jpg"&gt;
-     &lt;img src="small.jpg" alt="The president."&gt;
-<span class=highlight>&lt;/picture&gt;</span>
-                    </code></pre>
-                </section>
-                <section>
-                    <h1>Source-size order matters</h1>
+                    <h2>Source-size order matters</h2>
                     <pre><code data-trim data-noescape>
 sizes=<span class=highlight>"(max-width: 30em) 100vw, 
      (max-width: 50em) 50vw, 
      calc(33vw - 100px)"</span>
                     </code></pre>
-                </section>
-                <section>
-                    <h1>!=</h1>
+                    !=
                     <pre><code data-trim data-noescape>
 sizes=<span class=highlight>"(max-width: 50em) 50vw,
      (max-width: 30em) 100vw, 
@@ -645,14 +567,15 @@ sizes=<span class=highlight>"(max-width: 50em) 50vw,
                     </code></pre>
                 </section>
                 <section>
-                    <h1>'sizes' default value</h1>
+                    <h2>'sizes' default value</h2>
                     <pre><code data-trim data-noescape>
-&lt;img src="otherpic.jpg"
+&lt;img src="otherpic.jpg" alt="The president giving an award."
      srcset="pic100.jpg 100w, pic200.jpg 200w"&gt;
                     </code></pre>
                     is identical to
                     <pre><code data-trim data-noescape>
 &lt;img src="otherpic.jpg" <span class=highlight>sizes="100vw"</span>
+     alt="The president giving an award."
      srcset="pic100.jpg 100w, pic200.jpg 200w"&gt;
                     </code></pre>
                     <aside class="notes">
@@ -662,9 +585,8 @@ sizes=<span class=highlight>"(max-width: 50em) 50vw,
                     </aside>
                 </section>
                 <section>
-                    <h1>Intrinsic sizing</h1>
-                    <p><img src="cc_resources/intrinsic_bearsX.jpg"></p>
-                    <div class="credits">https://www.flickr.com/photos/thepeachpeddler/11843426553</div>
+                    <h2>Intrinsic sizing</h2>
+                    <p><img src="resources/intrinsicSizingX.png"></p>
                     <aside class="notes">
                         <p>Both the 'x' descriptor and the 'w' have an impact on the image's intrinsic size.</p>
                         <p>That means that when the image dimensions are not otherwise defined, the browser will use these values and
@@ -673,14 +595,24 @@ sizes=<span class=highlight>"(max-width: 50em) 50vw,
                     </aside>
                 </section>
                 <section>
-                    <h1>Moar intrinsic sizing</h1>
-                    <p><img src="cc_resources/intrinsic_bearsW.jpg"></p>
-                    <div class="credits">https://www.flickr.com/photos/thepeachpeddler/11843426553</div>
+                    <h2>Moar intrinsic sizing</h2>
+                    <p><img src="resources/intrinsic_sizing_w.png"></p>
                     <aside class="notes">
                     </aside>
                 </section>
                 <section>
-                    <h1>Styling</h1>
+                    <h2>src cannot be selected when 'w' is present</h2>
+                    <pre><code data-trim data-noescape>
+&lt;img <span class=highlight>src="otherpic.jpg"</span> alt="The president giving an award."
+     srcset="<span class=highlight>pic100.jpg 100w, pic200.jpg 200w</span>"&gt;
+                    </code></pre>
+                    <aside class="notes">
+                        If you have 'w' resources, the 'src' resource is not part of the selection algorithm.
+                        That is to avoid surprises.
+                    </aside>
+                </section>
+                <section>
+                    <h2>Styling</h2>
                     <h3 style="margin-top: 120px">"Picture is a magical span, nothing more"</h3>
                     <p style="text-align: right">- Tab Atkins</p>
                     <!-- Add a picture of a unicore thing -->
@@ -691,13 +623,7 @@ sizes=<span class=highlight>"(max-width: 50em) 50vw,
                     </aside>
                 </section>
                 <section>
-                    <h1>Alternative text</h1>
-                    <aside class="notes">
-                        alt text stays the same as it always was. On img. Picture has no alt text.
-                    </aside>
-                </section>
-                <section>
-                    <h1>Future compat</h1>
+                    <h2>Future compat</h2>
                     <h3>Feature detection FTW!</h3>
                     <pre style="display:inline"><code style="display: inline; margin-left: 0">HTMLImageElement.sizes</code><span> &amp; </span><code style="display: inline; margin-left: 0">HTMLPictureElement</code></pre>
                     <aside class="notes">
@@ -716,13 +642,13 @@ sizes=<span class=highlight>"(max-width: 50em) 50vw,
                     </aside>
                 </section>
                 <section>
-                    <h1>&lt;/advice&gt;</h1>
+                    <h2>&lt;/advice&gt;</h2>
                 </section>
                 <section>
-                    <h1>The path not (yet) taken</h1>
+                    <h2>The path not (yet) taken</h2>
                 </section>
                 <section>
-                    <h1>Client Hints</h1>
+                    <h2>Client Hints</h2>
                     <aside class="notes">
                     </aside>
                 </section>
@@ -733,25 +659,126 @@ sizes=<span class=highlight>"(max-width: 50em) 50vw,
                         <li>Server side logic decides on resource</li>
                         <p>It's a complementary solution that allows for server side image adaptation, on top or instead of client side
                         one</p>
-                        <p>Future doesn't look bright, since some browser people are opposed to it</p>
-                        <p>But, it may be a thing after all</p>
+                        <p>Future doesn't look bright, since Mozilla are opposed to it</p>
                     </aside>
                 </section>
                 <section>
-                    <h1>To sum it up</h1>
+                    <h2>Request headers</h2>
+                    <aside class="notes">
+                    </aside>
+				</section>
+                <section>
+                    <h2>CH-DPR</h2>
                 </section>
                 <section>
-                    <h1>Responsive images</h1><h1>are <span class="strikeout">coming</span> HERE!</h1>
+                    <h2>CH-RW</h2>
+                    Resource Width
+                    <p>Implicitly relies on 'sizes'</p>
+                </section>
+                <section>
+                    <h2>Response headers</h2>
+                    <aside class="notes">
+                    </aside>
+				</section>
+                <section>
+                    <h2>DPR</h2>
+                    <p>Server confirmation header</p>
+                    <p>Used for intrinsic image sizing</p>
+                    <aside class="notes">
+                    </aside>
+				</section>
+                <section>
+                    <h3>Opt-in only</h3>
+                    <p>Not sent on initial HTML request</p>
+                </section>
+                <section>
+                    <h2>Responsive Image Container</h2>
+                    <ul>
+                        <li class="fragment">File format approach</li>
+                        <li class="fragment">A "layer" per resolution</li>
+                        <li class="fragment">Both resolution switching and art-direction</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Resolution switching</h3>
+                    <img src="resources/res_switch_shrink.png">
+                    <p>336x635</p>
+                </section>
+                <section>
+                    Is split into
+                </section>
+                <section>
+                    <img src="resources/res_switch.png_layer1.webp.png">
+                    <p>106x200</p>
+                </section>
+                <section>
+                    <img src="resources/res_switch.png_layer2.webp.png">
+                    <img src="resources/res_switch.png_layer2-bw.png">
+                    <p>211x400</p>
+                </section>
+                <section>
+                    <img src="resources/res_switch.png_layer3.webp.png">
+                    <img src="resources/res_switch.png_layer3-bw.png">
+                    <p>336x635</p>
+                </section>
+                <section>
+                    <h3>Art-direction</h3>
+                    <img src="resources/crop.jpg">
+                    <p>770x512</p>
+                </section>
+                <section>
+                    Is split into
+                </section>
+                <section>
+                    <img src="resources/crop.jpg_layer1.webp.png">
+                    <p>200x200</p>
+                </section>
+                <section>
+                    <img src="resources/crop.jpg_layer2.webp.png">
+                    <p>400x288</p>
+                </section>
+                <section>
+                    <img src="resources/crop.jpg_layer3.webp.png">
+                    <p>770x512</p>
+                </section>
+                <section>
+                    <h3>Advantages</h3>
+                    <ul>
+                        <li class="fragment">Markup left untouched</li>
+                        <li class="fragment">A single file per image</li>
+                        <li class="fragment">Better for post-download dimensions changes</li>
+                    </ul>
+                    <aside class="notes">
+                        <p>No markup</p>
+                        <p>single file</p>
+                        <p>can download diff</p>
+                    </aside>
+                </section>
+                <section>
+                    <h3>disadvantages</h3>
+                    <ul>
+                        <li class="fragment">Touches many layers. Will take time</li>
+                        <li class="fragment">Decoding performance???</li>
+                        <li class="fragment">Fetching mechanism network performance???</li>
+                    </ul>
+                    <aside class="notes">
+                        <p>complicated</p>
+                        <p>decoding perf?</p>
+                        <p>Fetching mechanism</p>
+                    </aside>
+                </section>
+                <section>
+                    <h2>To sum it up</h2>
+                    <img width=800px src="resources/braceyourselves.jpg">
                 </section>
                 <section>
                     <h1>Thanks!</h1>
                     <p> <a href="https://twitter.com/yoavweiss">@yoavweiss</a> on Twitter &amp; GitHub</p>
                     <p><a href="http://responsiveimages.org">responsiveimages.org</a></p>
-                    <p>Velocity - NYC, September 2014</p>
-                    <p><a href="http://yoavweiss.github.io/respimg_velocity_nyc_2014/">yoavweiss.github.io/respimg_velocity_nyc_2014</a></p>
+                    <p>Slides: <a href="http://yoavweiss.github.io/respimg-indi-workshop/">yoavweiss.github.io/respimg-indi-workshop</a></p>
                 </section>
                 <section>
-                    <h1>Questions?</h1>
+                    <h2>Questions?</h2>
                 </section>
                 <!--
                 <section>
